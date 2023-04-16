@@ -1,6 +1,7 @@
 ## Abstract
 
-Non-autoregressive text-to-speech (NAR-TTS) models such as FastSpeech 2 and Glow-TTS can synthesize high-quality speech from the given text in parallel. After analyzing two kinds of generative NAR-TTS models (VAE and normalizing flow), we find that: VAE is good at capturing the long-range semantics features (e.g., prosody) even with small model size but suffers from blurry and unnatural results; and normalizing flow is good at reconstructing the frequency bin-wise details but performs poorly when the number of model parameters is limited. Inspired by these observations, to generate diverse speech with natural details and rich prosody using a lightweight architecture, we propose PortaSpeech, a portable and high-quality generative text-to-speech model. Specifically, 1) to model both the prosody and mel-spectrogram details accurately, we adopt a lightweight VAE with an enhanced prior followed by a flow-based post-net with strong conditional inputs as the main architecture. 2) To further compress the model size and memory footprint, we introduce the grouped parameter sharing mechanism to the affine coupling layers in the post-net. 3) To improve the expressiveness of synthesized speech and reduce the dependency on accurate fine-grained alignment between text and speech, we propose a linguistic encoder with mixture alignment combining hard inter-word alignment and soft intra-word alignment, which explicitly extracts word-level semantic information.  Experimental results show that PortaSpeech outperforms other TTS models in both voice quality and prosody modeling in terms of subjective and objective evaluation metrics, and shows only a slight performance degradation when reducing the model parameters to 6.7M (about 4x model size and 3x runtime memory compression ratio compared with FastSpeech 2). Our extensive ablation studies demonstrate that each design in PortaSpeech is effective. d
+Zero-shot voice conversion (VC) trained by non-parallel data has gained a lot of attention in recent years. Previous methods usually extract speaker embeddings from audios and use them for converting the voices into different voice styles. Since there is a strong relationship between human faces and voices, a promising approach would be to synthesize various voice characteristics from face representation. Therefore, we introduce a novel idea of generating different voice styles from different human face photos, which can facilitate new applications, e.g., personalized voice assistants.
+However, the audio-visual relationship is implicit. Moreover, the existing VCs are trained on laboratory-collected datasets without speaker photos, while the datasets with both photos and audios are in-the-wild datasets. Directly replacing the target audio with the target photo and training on the in-the-wild dataset leads to noisy results. To address these issues, we propose a novel many-to-many voice conversion network, namely Face-based Voice Conversion (FaceVC), with a 3-stage training strategy. Quantitative and qualitative experiments on the LRS3-Ted dataset show that the proposed FaceVC successfully performs voice conversion according to the target face photos.
 
 <img align="center" src="resources/arch.png" style="  display: block;
   margin-left: auto;
@@ -20,39 +21,24 @@ https://github.com/Levent/Zeroshot-FaceVC
     <tr>
     <th style="text-align: center;">Source Speaker</th>
     <th style="text-align: center;">Target Speaker</th>
-    <th></th>
-    <th style="text-align: center;">Source Speaker</th>
-    <th style="text-align: center;">Target Speaker</th>
     </tr>
 
     <tr>
     <td><img src="resources/image/mgcj_00005.jpg"></td>
     <td><img src="resources/image/7kkR_00004.jpg"></td>
-    <td></td>
-    <td><img src=""></td>
-    <td><img src=""></td>
     </tr>
 
     <tr>
     <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_src_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.wav" type="audio/wav"></audio></td>
-    <td></td>
-    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.mp3" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.mp3" type="audio/wav"></audio></td>
     </tr>
 
     <tr>
     <th style="text-align: center;">SpeechVC</th>
     <th style="text-align: center;">FVMVC</th>
-    <th></th>
-    <th style="text-align: center;">SpeechVC</th>
-    <th style="text-align: center;">FVMVC</th>
     </tr>
     <tbody>
     <tr>
-    <td><audio controls="" ><source src="resources/wav/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
-    <td></td>
     <td><audio controls="" ><source src="resources/wav/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls="" ><source src="resources/wav/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
     </tr>
@@ -65,39 +51,24 @@ https://github.com/Levent/Zeroshot-FaceVC
     <tr>
     <th style="text-align: center;">Source Speaker</th>
     <th style="text-align: center;">Target Speaker</th>
-    <th></th>
-    <th style="text-align: center;">Source Speaker</th>
-    <th style="text-align: center;">Target Speaker</th>
     </tr>
 
     <tr>
     <td><img src="resources/image/mgcj_00005.jpg"></td>
     <td><img src="resources/image/7kkR_00004.jpg"></td>
-    <td></td>
-    <td><img src=""></td>
-    <td><img src=""></td>
     </tr>
 
     <tr>
     <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
     <td><audio controls=""><source src="resources/wav/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.wav"></audio></td>
-    <td></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.wav"></audio></td>
     </tr>
 
     <tr>
-    <th style="text-align: center;">SpeechVC</th>
-    <th style="text-align: center;">FVMVC</th>
-    <th></th>
     <th style="text-align: center;">SpeechVC</th>
     <th style="text-align: center;">FVMVC</th>
     </tr>
     <tbody>
     <tr>
-    <td><audio controls="" ><source src="resources/wav/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
-    <td></td>
     <td><audio controls="" ><source src="resources/wav/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls="" ><source src="resources/wav/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
     </tr>
