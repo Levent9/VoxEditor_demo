@@ -81,39 +81,24 @@ https://github.com/Levent/Zeroshot-FaceVC
     <tr>
     <th style="text-align: center;">Source Speaker</th>
     <th style="text-align: center;">Target Speaker</th>
-    <th></th>
-    <th style="text-align: center;">Source Speaker</th>
-    <th style="text-align: center;">Target Speaker</th>
     </tr>
 
     <tr>
     <td><img src="resources/image/mgcj_00005.jpg"></td>
     <td><img src="resources/image/7kkR_00004.jpg"></td>
-    <td></td>
-    <td><img src=""></td>
-    <td><img src=""></td>
     </tr>
 
     <tr>
     <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
     <td><audio controls=""><source src="resources/wav/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.wav"></audio></td>
-    <td></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.wav"></audio></td>
     </tr>
 
     <tr>
-    <th style="text-align: center;">SpeechVC</th>
-    <th style="text-align: center;">FVMVC</th>
-    <th></th>
     <th style="text-align: center;">SpeechVC</th>
     <th style="text-align: center;">FVMVC</th>
     </tr>
     <tbody>
     <tr>
-    <td><audio controls="" ><source src="resources/wav/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
-    <td></td>
     <td><audio controls="" ><source src="resources/wav/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls="" ><source src="resources/wav/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
     </tr>
