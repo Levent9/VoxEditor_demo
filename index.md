@@ -236,7 +236,7 @@ https://github.com/Levent/Zeroshot-FaceVC
     <td>0.6E+0.4F</td>
     <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.2_gen.wav" type="audio/wav"></audio></td>
     </tr>
-    </table>
+  
 
 
     <tr>
@@ -247,15 +247,15 @@ https://github.com/Levent/Zeroshot-FaceVC
     <td>0.4E+0.6F</td>
     <td colspan ="2" ><audio controls="" ><source src="FaceVC_demo/resources/wav/3/FFG2_hilc/mgcj_00013_0.7_gen.wav" type="audio/wav"></audio></td>
     </tr>
-    </table>
+
 
 
     <tr>
     <td>B</td>
     <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_1.0_gen.wav" type="audio/wav"></audio></td>
-    <td>C</td>
+    <td>D</td>
     <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_1.0_gen.wav"  type="audio/wav"></audio></td>
-    <td>E</td>
+    <td>F</td>
     <td colspan ="2" ><audio controls="" ><source src="FaceVC_demo/resources/wav/3/FFG2_hilc/mgcj_00013_1.0_gen.wav" type="audio/wav"></audio></td>
     </tr>
     </table>
