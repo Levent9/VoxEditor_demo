@@ -3,7 +3,7 @@ description: The demo website for zero-shot FaceVCs
 # show_downloads: true
 # google_analytics:
 theme: jekyll-theme-cayman
-# livereload: true
+livereload: true
 # theme: jekyll-theme-cayman
-# github:
-#   is_project_page: false
+github:
+  is_project_page: false
