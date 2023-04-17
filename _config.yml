@@ -1,7 +1,5 @@
-title: FVMVC
-description: The demo website for zero-shot FaceVC
-
-livereload: true
+title: Cayman theme
+description: Cayman is a clean, responsive theme for GitHub Pages.
+show_downloads: true
+google_analytics:
 theme: jekyll-theme-cayman
-github:
-  is_project_page: false
