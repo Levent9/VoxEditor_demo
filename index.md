@@ -16,7 +16,7 @@ https://github.com/Levent/Zeroshot-FaceVC
 
 1. The essential point to be remembered is that the ornament, whatever it is, whether picture or pattern work, should form part of the page.
 
-    <table style="text-align: center;">
+    <table align = "center" ;style="text-align: center;">
 
     <tr>
     <th style="text-align: center;">Source Speaker</th>
@@ -25,7 +25,7 @@ https://github.com/Levent/Zeroshot-FaceVC
 
     <tr>
     <td><img src="resources/image/mgcj_00005.jpg"></td>
-    <td><img src="resources/image/7kkR_00004.jpg"></td>
+    <td><img src="resources/image/7kkR_00003.jpg"></td>
     </tr>
 
     <tr>
@@ -39,14 +39,14 @@ https://github.com/Levent/Zeroshot-FaceVC
     </tr>
     <tbody>
     <tr>
-    <td><audio controls="" ><source src="resources/wav/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
     </tr>
     </tbody>
     </table>
 
 
-    <table style="text-align: center;">
+    <table align = "center" ;style="text-align: center;">
 
     <tr>
     <th style="text-align: center;">Source Speaker</th>
@@ -54,13 +54,13 @@ https://github.com/Levent/Zeroshot-FaceVC
     </tr>
 
     <tr>
-    <td><img src="resources/image/mgcj_00005.jpg"></td>
-    <td><img src="resources/image/7kkR_00004.jpg"></td>
+    <td><img src="resources/image/ZJNE_00047.jpg"></td>
+    <td><img src="resources/image/9uOM_00001.jpg"></td>
     </tr>
 
     <tr>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/9uOM_00001_ZJNE_00047_F2M_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/9uOM_00001_ZJNE_00047_F2M_ref_gen.wav"></audio></td>
     </tr>
 
     <tr>
@@ -69,14 +69,14 @@ https://github.com/Levent/Zeroshot-FaceVC
     </tr>
     <tbody>
     <tr>
-    <td><audio controls="" ><source src="resources/wav/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/SpeechVC/9uOM_00001_ZJNE_00047_F2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/FVMVC/9uOM_00001_ZJNE_00047_F2M_gen.wav"  type="audio/wav"></audio></td>
     </tr>
     </tbody>
     </table>
 
 
-    <table style="text-align: center;">
+    <table align = "center" ;style="text-align: center;">
 
     <tr>
     <th style="text-align: center;">Source Speaker</th>
@@ -84,13 +84,13 @@ https://github.com/Levent/Zeroshot-FaceVC
     </tr>
 
     <tr>
-    <td><img src="resources/image/mgcj_00005.jpg"></td>
-    <td><img src="resources/image/7kkR_00004.jpg"></td>
+    <td><img src="resources/image/UAj1_00014.jpg"></td>
+    <td><img src="resources/image/81Ub_00001.jpg"></td>
     </tr>
 
     <tr>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/81Ub_00001_UAj1_00014_F2M_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/81Ub_00001_UAj1_00014_F2M_ref_gen.wav"></audio></td>
     </tr>
 
     <tr>
@@ -99,8 +99,8 @@ https://github.com/Levent/Zeroshot-FaceVC
     </tr>
     <tbody>
     <tr>
-    <td><audio controls="" ><source src="resources/wav/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/SpeechVC/81Ub_00001_UAj1_00014_F2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/FVMVC/81Ub_00001_UAj1_00014_F2M_gen.wav"  type="audio/wav"></audio></td>
     </tr>
     </tbody>
     </table>
@@ -111,53 +111,82 @@ https://github.com/Levent/Zeroshot-FaceVC
     <table stype='width:80%' style="text-align: center;">
 
     <tr>
-    <th></th>
-    <th style="text-align: center;">Source Speaker Wav</th>
-    <th style="text-align: center;">Target Speaker Image 1</th>
-    <th style="text-align: center;">Target Speaker Image 2</th>
-    <th style="text-align: center;">Target Speaker Image 3</th>
+    <th style="text-align: center;">Source Speaker</th>
+    <th style="text-align: center;">Target Speaker 1</th>
+    <th style="text-align: center;">Target Speaker 2</th>
+    <th style="text-align: center;">Target Speaker 3</th>
     </tr>
 
     <tr>
-    <td></td>
-    <td></td>
-    <td><img src="resources/img_00001.jpg"></td>
-    <td><img src="resources/img_00001.jpg"></td>
-    <td><img src="resources/img_00001.jpg"></td>
+    <td><img src="resources/image/mgcj_00008.jpg"></td>
+    <td><img src="resources/image/81Ub_00001.jpg"></td>
+    <td><img src="resources/image/81Ub_00002.jpg"></td>
+    <td><img src="resources/image/81Ub_00003.jpg"></td>
     </tr>
 
     <tr>
-    <td>wav</td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT (voc.)/0000000001.mp3" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00008_M2M_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00001_mgcj_00008_M2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00002_mgcj_00008_M2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00003_mgcj_00008_M2M_gen.wav" type="audio/wav"></audio></td>
     </tr>
 
 
     <tr>
-    <td>wav</td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT (voc.)/0000000001.mp3" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00001_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00002_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00003_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
     </tr>
 
 
     <tr>
-    <td>wav</td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT (voc.)/0000000001.mp3" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_UAj1_00011_F2M_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00001_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00002_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00003_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
+    </tr>
+    </table>
+
+
+
+    <table stype='width:80%' style="text-align: center;">
+
+    <tr>
+    <th style="text-align: center;">Source Speaker</th>
+    <th style="text-align: center;">Target Speaker 1</th>
+    <th style="text-align: center;">Target Speaker 2</th>
+    <th style="text-align: center;">Target Speaker 3</th>
     </tr>
 
     <tr>
-    <td>wav</td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/audio/GT (voc.)/0000000001.mp3" type="audio/wav"></audio></td>
+    <td><img src="resources/image/mgcj_00002.jpg"></td>
+    <td><img src="resources/image/YzGj_00005.jpg"></td>
+    <td><img src="resources/image/YzGj_00006.jpg"></td>
+    <td><img src="resources/image/YzGj_00013.jpg"></td>
+    </tr>
+
+    <tr>
+    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/YzGj_00006_mgcj_00002_M2F_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00005_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00006_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00013_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
+    </tr>
+
+
+    <tr>
+    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/YzGj_00005_xTkK_00004_M2F_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00005_xTkK_00004_M2F_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00006_xTkK_00004_M2F_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00013_xTkK_00004_M2F_gen.wav" type="audio/wav"></audio></td>
+    </tr>
+
+
+    <tr>
+    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_UAj1_00011_F2M_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00001_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00002_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00003_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
     </tr>
     </table>
 
@@ -178,24 +207,55 @@ https://github.com/Levent/Zeroshot-FaceVC
 
     <tr>
     <td></td>
-    <td><img src="resources/img_00001.jpg"></td>
-    <td><img src="resources/img_00001.jpg"></td>
+    <td><img src="resources/image/7kkR_00003.jpg"></td>
+    <td><img src="resources/image/9uOM_00001.jpg"></td>
     <td></td>
-    <td><img src="resources/img_00001.jpg"></td>
-    <td><img src="resources/img_00001.jpg"></td>
+    <td><img src="resources/image/E22i_00006.jpg"></td>
+    <td><img src="resources/image/81Ub_00001.jpg"></td>
     <td></td>
-    <td><img src="resources/img_00001.jpg"></td>
-    <td><img src="resources/img_00001.jpg"></td>
+    <td><img src="resources/image/hilc_00006.jpg"></td>
+    <td><img src="resources/image/FFG2_00003.jpg"></td>
     </tr>
 
     <tr>
     <td>A</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.0_gen.wav" type="audio/wav"></audio></td>
     <td>C</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.0_gen.wav" type="audio/wav"></audio></td>
     <td>E</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.0_gen.wav" type="audio/wav"></audio></td>
     </tr>
     </table>
 
 
+    <tr>
+    <td>0.6A+0.4B</td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.3_gen.wav" type="audio/wav"></audio></td>
+    <td>C</td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.4_gen.wav"  type="audio/wav"></audio></td>
+    <td>E</td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.2_gen.wav" type="audio/wav"></audio></td>
+    </tr>
+    </table>
+
+
+    <tr>
+    <td>0.4A+0.6B</td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.7_gen.wav" type="audio/wav"></audio></td>
+    <td>C</td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.5_gen.wav"  type="audio/wav"></audio></td>
+    <td>E</td>
+    <td colspan ="2" ><audio controls="" ><source src="FaceVC_demo/resources/wav/3/FFG2_hilc/mgcj_00013_0.7_gen.wav" type="audio/wav"></audio></td>
+    </tr>
+    </table>
+
+
+    <tr>
+    <td>B</td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_1.0_gen.wav" type="audio/wav"></audio></td>
+    <td>C</td>
+    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_1.0_gen.wav"  type="audio/wav"></audio></td>
+    <td>E</td>
+    <td colspan ="2" ><audio controls="" ><source src="FaceVC_demo/resources/wav/3/FFG2_hilc/mgcj_00013_1.0_gen.wav" type="audio/wav"></audio></td>
+    </tr>
+    </table>
