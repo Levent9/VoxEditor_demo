@@ -1,6 +1,6 @@
 <!-- ## Abstract -->
 
-Zero-shot voice conversion (VC) trained by non-parallel data has gained a lot of attention in recent years. Previous methods usually extract speaker embeddings from audios and use them for converting the voices into different voice styles. Since there is a strong relationship between human faces and voices, a promising approach would be to synthesize various voice characteristics from face representation. Therefore, we introduce a novel idea of generating different voice styles from different human face photos, which can facilitate new applications, e.g., personalized voice assistants.
+**Abstract**: Zero-shot voice conversion (VC) trained by non-parallel data has gained a lot of attention in recent years. Previous methods usually extract speaker embeddings from audios and use them for converting the voices into different voice styles. Since there is a strong relationship between human faces and voices, a promising approach would be to synthesize various voice characteristics from face representation. Therefore, we introduce a novel idea of generating different voice styles from different human face photos, which can facilitate new applications, e.g., personalized voice assistants.
 However, the audio-visual relationship is implicit. Moreover, the existing VCs are trained on laboratory-collected datasets without speaker photos, while the datasets with both photos and audios are in-the-wild datasets. Directly replacing the target audio with the target photo and training on the in-the-wild dataset leads to noisy results. To address these issues, we propose a novel many-to-many voice conversion network, namely Face-based Voice Conversion (FaceVC), with a 3-stage training strategy. Quantitative and qualitative experiments on the LRS3-Ted dataset show that the proposed FaceVC successfully performs voice conversion according to the target face photos.
 
 <img align="center" src="resources/arch.png" style="  display: block;
@@ -10,7 +10,7 @@ However, the audio-visual relationship is implicit. Moreover, the existing VCs a
 
 ## Offical Code Github REPO
 
-https://github.com/Levent/Zeroshot-FaceVC
+The code will be available soon
 
 ## Audio Samples
 
