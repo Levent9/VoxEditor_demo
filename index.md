@@ -16,7 +16,7 @@ https://github.com/Levent/Zeroshot-FaceVC
 
 1. The essential point to be remembered is that the ornament, whatever it is, whether picture or pattern work, should form part of the page.
 
-    <table align = "center" ;style="text-align: center;">
+    <table align = "center" style="text-align: center;">
 
     <tr>
     <th style="text-align: center;">Source Speaker</th>
@@ -46,7 +46,7 @@ https://github.com/Levent/Zeroshot-FaceVC
     </table>
 
 
-    <table align = "center" ;style="text-align: center;">
+    <table align = "center"  style="text-align: center;">
 
     <tr>
     <th style="text-align: center;">Source Speaker</th>
@@ -76,7 +76,7 @@ https://github.com/Levent/Zeroshot-FaceVC
     </table>
 
 
-    <table align = "center" ;style="text-align: center;">
+    <table align = "center" style="text-align: center;">
 
     <tr>
     <th style="text-align: center;">Source Speaker</th>
@@ -225,15 +225,15 @@ https://github.com/Levent/Zeroshot-FaceVC
     <td>E</td>
     <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.0_gen.wav" type="audio/wav"></audio></td>
     </tr>
-    </table>
+  
 
 
     <tr>
     <td>0.6A+0.4B</td>
     <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.3_gen.wav" type="audio/wav"></audio></td>
-    <td>C</td>
+    <td>0.6C+0.4D</td>
     <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.4_gen.wav"  type="audio/wav"></audio></td>
-    <td>E</td>
+    <td>0.6E+0.4F</td>
     <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.2_gen.wav" type="audio/wav"></audio></td>
     </tr>
     </table>
@@ -242,9 +242,9 @@ https://github.com/Levent/Zeroshot-FaceVC
     <tr>
     <td>0.4A+0.6B</td>
     <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.7_gen.wav" type="audio/wav"></audio></td>
-    <td>C</td>
+    <td>0.4C+0.6D</td>
     <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.5_gen.wav"  type="audio/wav"></audio></td>
-    <td>E</td>
+    <td>0.4E+0.6F</td>
     <td colspan ="2" ><audio controls="" ><source src="FaceVC_demo/resources/wav/3/FFG2_hilc/mgcj_00013_0.7_gen.wav" type="audio/wav"></audio></td>
     </tr>
     </table>
