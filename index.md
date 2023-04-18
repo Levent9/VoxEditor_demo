@@ -1,260 +1,148 @@
-<!-- ## Abstract -->
+## Abstract
 
-**Abstract**: This paper proposes a novel task, zero-shot voice conversion based on the face image (zero-shot FaceVC), which allows for converting the voice characteristic of an utterance from any source speakers to a newly coming target speaker, solely relying on a single face image of the target speaker. To address this task, we introduce a face-voice memory based zero-shot FaceVC method. Our approach leverages a memory based face-voice alignment module, where slots act as the bridge to align these two modalities, allowing for the capture of voice characteristic information from the face image. In this method, a mixed supervision strategy is also introduced to mitigate the long-standing issue of inconsistency between training and inference phases for voice conversion tasks. To obtain speaker-independent content-related representation, we transfer the knowledge from the pretrained zero-shot voice conversion model to zero-shot FaceVC model. In response to the unique challenges posed by this task as compared to traditional voice conversion tasks, we have developed a range of  subjective and objective metrics to thoroughly evaluate our method. These metrics primarily focus on assessing  homogeneity, diversity and consistency of voice characteristic controlled by the face image. Through extensive experiments, we demonstrate the superiority of our proposed method on this novel task. 
+Non-autoregressive text-to-speech (NAR-TTS) models such as FastSpeech 2 and Glow-TTS can synthesize high-quality speech from the given text in parallel. After analyzing two kinds of generative NAR-TTS models (VAE and normalizing flow), we find that: VAE is good at capturing the long-range semantics features (e.g., prosody) even with small model size but suffers from blurry and unnatural results; and normalizing flow is good at reconstructing the frequency bin-wise details but performs poorly when the number of model parameters is limited. Inspired by these observations, to generate diverse speech with natural details and rich prosody using a lightweight architecture, we propose PortaSpeech, a portable and high-quality generative text-to-speech model. Specifically, 1) to model both the prosody and mel-spectrogram details accurately, we adopt a lightweight VAE with an enhanced prior followed by a flow-based post-net with strong conditional inputs as the main architecture. 2) To further compress the model size and memory footprint, we introduce the grouped parameter sharing mechanism to the affine coupling layers in the post-net. 3) To improve the expressiveness of synthesized speech and reduce the dependency on accurate fine-grained alignment between text and speech, we propose a linguistic encoder with mixture alignment combining hard inter-word alignment and soft intra-word alignment, which explicitly extracts word-level semantic information.  Experimental results show that PortaSpeech outperforms other TTS models in both voice quality and prosody modeling in terms of subjective and objective evaluation metrics, and shows only a slight performance degradation when reducing the model parameters to 6.7M (about 4x model size and 3x runtime memory compression ratio compared with FastSpeech 2). Our extensive ablation studies demonstrate that each design in PortaSpeech is effective. d
 
-<img align="center" src="resources/overall.png" style="  display: block;
+<img align="center" src="resources/arch.png" style="  display: block;
   margin-left: auto;
   margin-right: auto;
   width: 80%;" />
 
 ## Offical Code Github REPO
 
-The code will be available soon
+https://github.com/NATSpeech/NATSpeech
 
 ## Audio Samples
 
 1. The essential point to be remembered is that the ornament, whatever it is, whether picture or pattern work, should form part of the page.
-
-    <table align = "center" style="text-align: center;">
-
-    <tr>
-    <th style="text-align: center;">Source Speaker</th>
-    <th style="text-align: center;">Target Speaker</th>
-    </tr>
-
-    <tr>
-    <td><img src="resources/image/mgcj_00008.jpg"></td>
-    <td><img src="resources/image/7kkR_00003.jpg"></td>
-    </tr>
-
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00008_M2F_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00008_M2F_ref_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-
-    <tr>
-    <th style="text-align: center;">SpeechVC</th>
-    <th style="text-align: center;">FVMVC</th>
-    </tr>
-    <tbody>
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/1/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/1/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
-    </tr>
+    <table style='width: 100%;'>
+        <thead>
+        <tr>
+            <th></th>
+            <th>GT</th>
+            <th>GT(voc.)</th>
+            <th>Tacotron 2</th>
+            <th>TransformerTTS</th>
+            <th>FastSpeech</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">wav</th>
+            <td><audio controls="" ><source src="resources/audio/GT/0000000001.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/GT (voc.)/0000000001.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/Tacotron 2/0000000001.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/TransformerTTS/0000000001.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/FastSpeech/0000000001.mp3" type="audio/wav"></audio></td>
+        </tr>
+    </tbody>
+        <thead>
+        <tr>
+            <th></th>
+            <th>FastSpeech 2</th>
+            <th>Glow-TTS</th>
+            <th>BVAE-TTS</th>
+            <th>PortaSpeech (normal)</th>
+            <th>PortaSpeech (small)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">wav</th>
+            <td><audio controls="" ><source src="resources/audio/FastSpeech 2/0000000001.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/Glow-TTS/0000000001.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/BVAE-TTS/0000000001.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/PortaSpeech (normal)/0000000001.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/PortaSpeech (small)/0000000001.mp3" type="audio/wav"></audio></td>
+        </tr>
     </tbody>
     </table>
 
 
-    <table align = "center"  style="text-align: center;">
-
-    <tr>
-    <th style="text-align: center;">Source Speaker</th>
-    <th style="text-align: center;">Target Speaker</th>
-    </tr>
-
-    <tr>
-    <td><img src="resources/image/ZJNE_00047.jpg"></td>
-    <td><img src="resources/image/9uOM_00001.jpg"></td>
-    </tr>
-
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/9uOM_00001_ZJNE_00047_F2M_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/9uOM_00001_ZJNE_00047_F2M_ref_gen.wav"></audio></td>
-    </tr>
-
-    <tr>
-    <th style="text-align: center;">SpeechVC</th>
-    <th style="text-align: center;">FVMVC</th>
-    </tr>
-    <tbody>
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/1/SpeechVC/9uOM_00001_ZJNE_00047_F2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/1/FVMVC/9uOM_00001_ZJNE_00047_F2M_gen.wav"  type="audio/wav"></audio></td>
-    </tr>
+2. Most of caxtons own types are of an earlier character, though they also much resemble flemish or cologne letter.
+    <table style='width: 100%;'>
+        <thead>
+        <tr>
+            <th></th>
+            <th>GT</th>
+            <th>GT(voc.)</th>
+            <th>Tacotron 2</th>
+            <th>TransformerTTS</th>
+            <th>FastSpeech</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">wav</th>
+            <td><audio controls="" ><source src="resources/audio/GT/0000000002.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/GT (voc.)/0000000002.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/Tacotron 2/0000000002.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/TransformerTTS/0000000002.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/FastSpeech/0000000002.mp3" type="audio/wav"></audio></td>
+        </tr>
+    </tbody>
+        <thead>
+        <tr>
+            <th></th>
+            <th>FastSpeech 2</th>
+            <th>Glow-TTS</th>
+            <th>BVAE-TTS</th>
+            <th>PortaSpeech (normal)</th>
+            <th>PortaSpeech (small)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">wav</th>
+            <td><audio controls="" ><source src="resources/audio/FastSpeech 2/0000000002.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/Glow-TTS/0000000002.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/BVAE-TTS/0000000002.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/PortaSpeech (normal)/0000000002.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/PortaSpeech (small)/0000000002.mp3" type="audio/wav"></audio></td>
+        </tr>
     </tbody>
     </table>
 
 
-    <table align = "center" style="text-align: center;">
-
-    <tr>
-    <th style="text-align: center;">Source Speaker</th>
-    <th style="text-align: center;">Target Speaker</th>
-    </tr>
-
-    <tr>
-    <td><img src="resources/image/UAj1_00014.jpg"></td>
-    <td><img src="resources/image/81Ub_00003.jpg"></td>
-    </tr>
-
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/81Ub_00003_UAj1_00011_F2M_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/81Ub_00003_UAj1_00011_F2M_ref_gen.wav"></audio></td>
-    </tr>
-
-    <tr>
-    <th style="text-align: center;">SpeechVC</th>
-    <th style="text-align: center;">FVMVC</th>
-    </tr>
-    <tbody>
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/1/SpeechVC/81Ub_00003_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/1/FVMVC/81Ub_00003_UAj1_00011_F2M_gen.wav"  type="audio/wav"></audio></td>
-    </tr>
+3. Full details of the arrangements are to be found in mr. neilds state of prisons in england, scotland, and wales, published in eighteen twelve.
+    <table style='width: 100%;'>
+        <thead>
+        <tr>
+            <th></th>
+            <th>GT</th>
+            <th>GT(voc.)</th>
+            <th>Tacotron 2</th>
+            <th>TransformerTTS</th>
+            <th>FastSpeech</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">wav</th>
+            <td><audio controls="" ><source src="resources/audio/GT/0000000003.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/GT (voc.)/0000000003.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/Tacotron 2/0000000003.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/TransformerTTS/0000000003.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/FastSpeech/0000000003.mp3" type="audio/wav"></audio></td>
+        </tr>
     </tbody>
-    </table>
-
-
-
-2. Consistency The essential point to be remembered is that the ornament, whatever it is, whether picture or pattern work, should form part of the page.
-    <table stype='width:80%' style="text-align: center;">
-
-    <tr>
-    <th style="text-align: center;">Source Speaker</th>
-    <th style="text-align: center;">Target Speaker 1</th>
-    <th style="text-align: center;">Target Speaker 2</th>
-    <th style="text-align: center;">Target Speaker 3</th>
-    </tr>
-
-    <tr>
-    <td><img src="resources/image/mgcj_00008.jpg"></td>
-    <td><img src="resources/image/81Ub_00001.jpg"></td>
-    <td><img src="resources/image/81Ub_00002.jpg"></td>
-    <td><img src="resources/image/81Ub_00003.jpg"></td>
-    </tr>
-
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00008_M2M_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00001_mgcj_00008_M2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00002_mgcj_00008_M2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00003_mgcj_00008_M2M_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-
-
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00001_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00002_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00003_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-
-
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_UAj1_00011_F2M_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00001_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00002_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00003_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-    </table>
-
-
-
-    <table stype='width:80%' style="text-align: center;">
-
-    <tr>
-    <th style="text-align: center;">Source Speaker</th>
-    <th style="text-align: center;">Target Speaker 1</th>
-    <th style="text-align: center;">Target Speaker 2</th>
-    <th style="text-align: center;">Target Speaker 3</th>
-    </tr>
-
-    <tr>
-    <td><img src="resources/image/mgcj_00002.jpg"></td>
-    <td><img src="resources/image/YzGj_00005.jpg"></td>
-    <td><img src="resources/image/YzGj_00006.jpg"></td>
-    <td><img src="resources/image/YzGj_00013.jpg"></td>
-    </tr>
-
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/YzGj_00006_mgcj_00002_M2F_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00005_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00006_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00013_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-
-
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/YzGj_00005_xTkK_00004_M2F_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00005_xTkK_00004_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00006_xTkK_00004_M2F_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00013_xTkK_00004_M2F_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-
-
-    <tr>
-    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_UAj1_00011_F2M_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00001_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00002_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00003_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-    </table>
-
-3. Consistency The essential point to be remembered is that the ornament, whatever it is, whether picture or pattern work, should form part of the page.
-    <table stype='width:80%' style="text-align: center;">
-
-    <tr>
-    <th></th>
-    <th style="text-align: center;">Speaker A</th>
-    <th style="text-align: center;">Speaker B</th>
-    <th></th>
-    <th style="text-align: center;">Speaker C</th>
-    <th style="text-align: center;">Speaker D</th>
-    <th></th>
-    <th style="text-align: center;">Speaker E</th>
-    <th style="text-align: center;">Speaker F</th>
-    </tr>
-
-    <tr>
-    <td></td>
-    <td><img src="resources/image/7kkR_00003.jpg"></td>
-    <td><img src="resources/image/9uOM_00001.jpg"></td>
-    <td></td>
-    <td><img src="resources/image/E22i_00006.jpg"></td>
-    <td><img src="resources/image/81Ub_00001.jpg"></td>
-    <td></td>
-    <td><img src="resources/image/hilc_00006.jpg"></td>
-    <td><img src="resources/image/FFG2_00003.jpg"></td>
-    </tr>
-
-    <tr>
-    <td>A</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.0_gen.wav" type="audio/wav"></audio></td>
-    <td>C</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.0_gen.wav" type="audio/wav"></audio></td>
-    <td>E</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.0_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-  
-
-
-    <tr>
-    <td>0.6A+0.4B</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.3_gen.wav" type="audio/wav"></audio></td>
-    <td>0.6C+0.4D</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.4_gen.wav"  type="audio/wav"></audio></td>
-    <td>0.6E+0.4F</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.2_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-  
-
-
-    <tr>
-    <td>0.4A+0.6B</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.7_gen.wav" type="audio/wav"></audio></td>
-    <td>0.4C+0.6D</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.5_gen.wav"  type="audio/wav"></audio></td>
-    <td>0.4E+0.6F</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.7_gen.wav" type="audio/wav"></audio></td>
-    </tr>
-
-
-
-    <tr>
-    <td>B</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_1.0_gen.wav" type="audio/wav"></audio></td>
-    <td>D</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/81Ub_E22i/mgcj_00008_1.0_gen.wav"  type="audio/wav"></audio></td>
-    <td>F</td>
-    <td colspan ="2" ><audio controls="" ><source src="resources/wav/3/FFG2_hilc/mgcj_00013_1.0_gen.wav" type="audio/wav"></audio></td>
-    </tr>
+        <thead>
+        <tr>
+            <th></th>
+            <th>FastSpeech 2</th>
+            <th>Glow-TTS</th>
+            <th>BVAE-TTS</th>
+            <th>PortaSpeech (normal)</th>
+            <th>PortaSpeech (small)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">wav</th>
+            <td><audio controls="" ><source src="resources/audio/FastSpeech 2/0000000003.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/Glow-TTS/0000000003.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/BVAE-TTS/0000000003.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/PortaSpeech (normal)/0000000003.mp3" type="audio/wav"></audio></td>
+            <td><audio controls="" ><source src="resources/audio/PortaSpeech (small)/0000000003.mp3" type="audio/wav"></audio></td>
+        </tr>
+    </tbody>
     </table>
