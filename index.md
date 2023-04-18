@@ -9,11 +9,11 @@
 
 ## Offical Code Github REPO
 
-The code will be available soon
+The code will be available soon.
 
 ## Audio Samples
 
-1. The converted utterances by SpeechVC and FVMVC are presented in the fifth row. SpeechVC used the natural reference utterance of the target speaker, presented in the third row, while FVMVC relied on the face image of the target speaker, presented in the second row. The source utterance of the source speaker is presented in the third row..
+1. The converted utterances by SpeechVC and FVMVC are presented in the fifth row. SpeechVC used the natural reference utterance of the target speaker, presented in the third row, while FVMVC relied on the face image of the target speaker, presented in the second row. The source utterance of the source speaker is presented in the third row.
 
     <table align = "center" style="text-align: center;">
 
@@ -132,7 +132,7 @@ The code will be available soon
 
 
     <tr>
-    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00015_M2M_src_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00001_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00002_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls="" ><source src="resources/wav/2/FVMVC/81Ub_00003_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
@@ -175,7 +175,7 @@ The code will be available soon
 
 
     <tr>
-    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/YzGj_00005_xTkK_00004_M2F_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00015_M2M_src_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00005_mgcj_00015_M2F_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00006_mgcj_00015_M2F_gen.wav" type="audio/wav"></audio></td>
     <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00013_mgcj_00015_M2F_gen.wav" type="audio/wav"></audio></td>
