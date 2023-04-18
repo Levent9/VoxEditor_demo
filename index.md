@@ -44,7 +44,6 @@ The code will be available soon
     </tbody>
     </table>
     <br>
-    </br>
 
     <table align = "center"  style="text-align: center;">
 
@@ -76,7 +75,6 @@ The code will be available soon
     </table>
 
     <br>
-    </br>
     <table align = "center" style="text-align: center;">
 
     <tr>
@@ -149,7 +147,8 @@ The code will be available soon
     </tr>
     </table>
 
-
+    <br>
+    
 
     <table stype='width:80%' style="text-align: center;">
 
