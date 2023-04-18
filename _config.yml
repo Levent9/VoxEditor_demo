@@ -1,5 +1,9 @@
-title: "FVMVC:Zero-shot Voice Conversion based on Face image"
+title: "FVMVC: Zero-shot Voice Conversion based on Face image"
+# description: The demo website for zero-shot FaceVC
+# show_downloads: true
+# google_analytics:
 theme: jekyll-theme-cayman
 livereload: true
+# theme: jekyll-theme-cayman
 github:
   is_project_page: false
