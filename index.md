@@ -105,7 +105,7 @@ The code will be available soon.
     </table>
 
 
-
+    <br>
 2. Converted utterances by the different face images of the same target speaker. 
     <table stype='width:80%' style="text-align: center;">
 
@@ -189,7 +189,7 @@ The code will be available soon.
     <td><audio controls="" ><source src="resources/wav/2/FVMVC/YzGj_00013_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
     </tr>
     </table>
-
+    <br>
 
 
 3. Voice interpolation.
