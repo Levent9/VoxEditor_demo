@@ -1,9 +1,8 @@
 <!-- ## Abstract -->
 
-**Abstract**: Zero-shot voice conversion (VC) trained by non-parallel data has gained a lot of attention in recent years. Previous methods usually extract speaker embeddings from audios and use them for converting the voices into different voice styles. Since there is a strong relationship between human faces and voices, a promising approach would be to synthesize various voice characteristics from face representation. Therefore, we introduce a novel idea of generating different voice styles from different human face photos, which can facilitate new applications, e.g., personalized voice assistants.
-However, the audio-visual relationship is implicit. Moreover, the existing VCs are trained on laboratory-collected datasets without speaker photos, while the datasets with both photos and audios are in-the-wild datasets. Directly replacing the target audio with the target photo and training on the in-the-wild dataset leads to noisy results. To address these issues, we propose a novel many-to-many voice conversion network, namely Face-based Voice Conversion (FaceVC), with a 3-stage training strategy. Quantitative and qualitative experiments on the LRS3-Ted dataset show that the proposed FaceVC successfully performs voice conversion according to the target face photos.
+**Abstract**: This paper proposes a novel task, zero-shot voice conversion based on the face image (zero-shot FaceVC), which allows for converting the voice characteristic of an utterance from any source speakers to a newly coming target speaker, solely relying on a single face image of the target speaker. To address this task, we introduce a face-voice memory based zero-shot FaceVC method. Our approach leverages a memory based face-voice alignment module, where slots act as the bridge to align these two modalities, allowing for the capture of voice characteristic information from the face image. In this method, a mixed supervision strategy is also introduced to mitigate the long-standing issue of inconsistency between training and inference phases for voice conversion tasks. To obtain speaker-independent content-related representation, we transfer the knowledge from the pretrained zero-shot voice conversion model to zero-shot FaceVC model. In response to the unique challenges posed by this task as compared to traditional voice conversion tasks, we have developed a range of  subjective and objective metrics to thoroughly evaluate our method. These metrics primarily focus on assessing  homogeneity, diversity and consistency of voice characteristic controlled by the face image. Through extensive experiments, we demonstrate the superiority of our proposed method on this novel task. 
 
-<img align="center" src="resources/arch.png" style="  display: block;
+<img align="center" src="resources/overall.png" style="  display: block;
   margin-left: auto;
   margin-right: auto;
   width: 80%;" />
@@ -24,13 +23,13 @@ The code will be available soon
     </tr>
 
     <tr>
-    <td><img src="resources/image/mgcj_00005.jpg"></td>
+    <td><img src="resources/image/mgcj_00008.jpg"></td>
     <td><img src="resources/image/7kkR_00003.jpg"></td>
     </tr>
 
     <tr>
-    <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00005_M2F_ref_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00008_M2F_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00008_M2F_ref_gen.wav" type="audio/wav"></audio></td>
     </tr>
 
     <tr>
@@ -85,12 +84,12 @@ The code will be available soon
 
     <tr>
     <td><img src="resources/image/UAj1_00014.jpg"></td>
-    <td><img src="resources/image/81Ub_00001.jpg"></td>
+    <td><img src="resources/image/81Ub_00003.jpg"></td>
     </tr>
 
     <tr>
-    <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/81Ub_00001_UAj1_00014_F2M_src_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/81Ub_00001_UAj1_00014_F2M_ref_gen.wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/ref_sour_wav/81Ub_00003_UAj1_00011_F2M_src_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls=""><source src="resources/wav/1/ref_sour_wav/81Ub_00003_UAj1_00011_F2M_ref_gen.wav"></audio></td>
     </tr>
 
     <tr>
@@ -99,8 +98,8 @@ The code will be available soon
     </tr>
     <tbody>
     <tr>
-    <td><audio controls="" ><source src="resources/wav/1/SpeechVC/81Ub_00001_UAj1_00014_F2M_gen.wav" type="audio/wav"></audio></td>
-    <td><audio controls="" ><source src="resources/wav/1/FVMVC/81Ub_00001_UAj1_00014_F2M_gen.wav"  type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/SpeechVC/81Ub_00003_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" ><source src="resources/wav/1/FVMVC/81Ub_00003_UAj1_00011_F2M_gen.wav"  type="audio/wav"></audio></td>
     </tr>
     </tbody>
     </table>
