@@ -1,3 +1,5 @@
+
+### Face Driven Zero-shot Voice Conversion
 <!-- ## Abstract -->
 
 **Abstract**: This paper proposes a novel task, zero-shot voice conversion based on the face image (zero-shot FaceVC), which allows for converting the voice characteristic of an utterance from any source speakers to a newly coming target speaker, solely relying on a single face image of the target speaker. To address this task, we introduce a face-voice memory based zero-shot FaceVC method. Our approach leverages a memory based face-voice alignment module, where slots act as the bridge to align these two modalities, allowing for the capture of voice characteristic information from the face image. In this method, a mixed supervision strategy is also introduced to mitigate the long-standing issue of inconsistency between training and inference phases for voice conversion tasks. To obtain speaker-independent content-related representation, we transfer the knowledge from the pretrained zero-shot voice conversion model to zero-shot FaceVC model. In response to the unique challenges posed by this task as compared to traditional voice conversion tasks, we have developed a range of  subjective and objective metrics to thoroughly evaluate our method. These metrics primarily focus on assessing  homogeneity, diversity and consistency of voice characteristic controlled by the face image. Through extensive experiments, we demonstrate the superiority of our proposed method on this novel task. 
@@ -15,7 +17,7 @@ The code will be available soon.
 
 1. The converted utterances by SpeechVC and FVMVC are presented in the fifth row. SpeechVC used the natural reference utterance of the target speaker, presented in the third row, while FVMVC relied on the face image of the target speaker, presented in the second row. The source utterance of the source speaker is presented in the third row.
 
-    <table align = "center" style="text-align: center;">
+    <table align style="text-align: center;">
 
     <tr>
     <th style="text-align: center;">Source speaker </th>
