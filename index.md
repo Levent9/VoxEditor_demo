@@ -47,7 +47,7 @@ The code will be available soon.
     </table>
     <br>
 
-    <table align = "center"  style="text-align: center;">
+    <table style="text-align: center;">
 
     <tr>
     <th style="text-align: center;">Source Speaker</th>
@@ -77,7 +77,7 @@ The code will be available soon.
     </table>
 
     <br>
-    <table align = "center" style="text-align: center;">
+    <table style="text-align: center;">
 
     <tr>
     <th style="text-align: center;">Source Speaker</th>
