@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Zero-shot FaceVC</title>
+    <title>VoxEditor: Text Prompt-based Voice Attribute Editing</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156162365-1"></script>
@@ -29,19 +29,18 @@
     <div class="container" style="max-width:1200px;">
         <div class='row mt-5 mb-3'>
             <div class='col text-center'>
-                <p class="h3 font-weight-normal">Face-Driven Zero-Shot Voice Conversion with Memory-based
-                    Face-Voice Alignment</p>
+                <p class="h3 font-weight-normal">VoxEditor: Text Prompt-based Voice Attribute Editing</p>
             </div>
         </div>
     </div>
     <div class="container" style="max-width:1100px;">
         <!-- authors -->
-        <div class='row text-center h5 font-weight-normal pl-0 pr-0 mb-4' style="font-style:italic">
+        <!-- <div class='row text-center h5 font-weight-normal pl-0 pr-0 mb-4' style="font-style:italic">
                 <a class="col-md-2 col-xs-4 text-dark" style='margin:auto;' ><span>Zhengyan Sheng</span></a>
                 <a class="col-md-2 col-xs-4 text-dark" style='margin:auto;'><span>Yang Ai</span></a>
                 <a class="col-md-2 col-xs-4 text-dark" style='margin:auto;'><span>Yannian Chen</span></a>
                 <a class="col-md-2 col-xs-4 text-dark" style='margin:auto;'><span>Zhenhua Ling*</span></a>
-        </div>
+        </div> -->
 
         <div>
             <hr>
@@ -50,28 +49,19 @@
 
                 <div class="container" style="max-width:1100px; margin-top: 20px; margin-bottom: 40px">
                     <p style='line-height:1.3; font-size:large; text-align: justify'>
-                        This paper presents a novel task, zero-shot voice conversion based
-                        on face images (zero-shot FaceVC), which aims at converting the
-                        voice characteristics of an utterance from any source speaker to a
-                        newly coming target speaker, solely relying on a single face image
-                        of the target speaker. To address this task, we propose a face-voice
-                        memory-based zero-shot FaceVC method. This method leverages a
-                        memory-based face-voice alignment module, in which slots act as
-                        the bridge to align these two modalities, allowing for the capture of
-                        voice characteristics from face images. A mixed supervision strategy
-                        is also introduced to mitigate the long-standing issue of the inconsistency between training and inference phases for voice conversion
-                        tasks. To obtain speaker-independent content-related representations, we transfer the knowledge from a pretrained zero-shot voice
-                        conversion model to our zero-shot FaceVC model. Considering
-                        the differences between FaceVC and traditional voice conversion
-                        tasks, systematic subjective and objective metrics are designed to
-                        thoroughly evaluate the homogeneity, diversity and consistency
-                        of voice characteristics controlled by face images. Through extensive experiments, we demonstrate the superiority of our proposed
-                        method on the zero-shot FaceVC task. 
+                        This paper introduces a novel task: text prompt-based voice attribute editing (VE), aiming to qualified editing speech by emphasizing the specified voice attribute using text prompts.
+                        Despite recent advancements in text prompts-based speech generation models providing control over speech style, the precise degree of voice attributes in the synthesized speech remains elusive and challenging to control.
+                        Hence, we introduce VoxEditor, the first
+                        end-to-end generative model to solve the VE task. In VoxEditor, addressing the complexities of describing certain voice characteristics, we propose Residual Memory (ResMem), that efficiently maps voice attributes and these descriptors into the shared feature space. Additionally, ResMem is enhanced with voice attribute degree prediction (VADP) module to align voice attributes with corresponding descriptors, facilitating precise quantized editing on speaker embedding.
+                        To achieve this, we also establish the VCTK-Description dataset, including manual annotations detailing voice characteristics difference among different speakers.
+                        Extensive experiments demonstrate the effectiveness of our proposed method in terms of both objective and subjective metrics.
                     </p>
                     <p style='line-height:1.3; font-size:large; text-align: justify'>
-                        Released Code: <a target="_blank" rel="noopener" href="https://github.com/Levent9/Zero-shot-FaceVC">https://github.com/Levent9/Zero-shot-FaceVC</a>
+                        <!-- Released Code: <a target="_blank" rel="noopener" href="https://github.com/Levent9/Zero-shot-FaceVC">https://github.com/Levent9/Zero-shot-FaceVC</a> -->
+                        Once accepted, we will replase our dataset.
                     </p>
-                    <p><img align="center" src="resources/overall.svg" alt="SVG Image" style="  display: block ;
+                    <!-- <p><img align="center" src="resources/pic3.svg" alt="SVG Image" style="  display: block ; -->
+                    <p><img align="center" src="resources/pic3.png" style="  display: block ;
                         margin-left: auto;
                         margin-right: auto;
                         width: 100%;"></p>
@@ -81,9 +71,10 @@
         <!-- Audio Samples -->
         <div class='col'>
             <hr>
+            
             <div class='row text-center'>
                 <div class='col'>
-                    <p class='h4 font-weight-bold '>Converted Utterance Examples</p>
+                    <p class='h4 font-weight-bold '>Edited Speech Examples</p>
                 </div>           
             </div>
             <!-- <div class='col text-center'> -->
@@ -97,543 +88,993 @@
             <!-- </div> -->
 
         <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-            <p class='h5'>1. Converted utterances by the different systems.</p>
+            <p class='h5'>Editing source speech from seen speakers with varying editing weights</p>
         </div>  
-
-        <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-            <p class='h6'>Sample 1</p>
-        </div>       
+   
         
-        <table align = "center" style="text-align: center;">
+        <table  style="text-align: center;">
 
             <tr>
-            <td style="text-align: center;">Source speaker </td>
-            <td style="text-align: center;">Target Speaker</td>
-            
-            </tr>
-        
-            <tr>
-            <td><img src="resources/image/mgcj_00002.jpg"></td>
-            <td><img src="resources/image/7kkR_00003.jpg"></td>
-            </tr>
-
-            <tr>
-                <td style="text-align: center;">Source utterance</td>
-                <td style="text-align: center;">Reference utterance</td>
-            </tr>
-
-            <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00008_M2F_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/ref_sour_wav/7kkR_00003_mgcj_00008_M2F_ref_gen.wav"></audio></td>
+                <td>1. I hope this sound becomes more <strong> magnetic</strong>. </td>
             </tr>
 
         </table>
-        <table align = "center" style="text-align: center;">
+        <table align="center" style="text-align: center;">
             <tr>
-                <td></td>
-                <td style="text-align: center;">SpeechVC</td>
-                <td style="text-align: center;">Auto-FaceVC</td>
-                <td style="text-align: center;">attentionCVAE</td>
-                <td style="text-align: center;">FVMVC</td>
-            </tr>
-
-            <tr>
-            <td style="text-align: center;">Converted utterance</td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/Auto-FaceVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/attentionCVAE/7kkR_00003_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/FVMVC/7kkR_00003_mgcj_00008_M2F_gen.wav"  type="audio/wav"></audio></td>
-            </tr>
-        
-        </table>
-        
-        <br>
-        <!-- <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-            <p class='h4'>2</p>
-        </div>     -->
-        <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-            <p class='h6'>Sample 2</p>
-        </div>       
-        </div>
-
-        <table align = "center"  style="text-align: center;">
-
-            <tr>
-            <td style="text-align: center;">Source Speaker</td>
-            <td style="text-align: center;">Target Speaker</td>
-            </tr>
-        
-            <tr>
-            <td><img src="resources/image/ZJNE_00047.jpg"></td>
-            <td><img src="resources/image/9uOM_00001.jpg"></td>
-            </tr>
-        
-            <tr>
-                <td style="text-align: center;">Source utterance</td>
-                <td style="text-align: center;">Reference utterance</td>
-            </tr>
-
-            <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/ref_sour_wav/9uOM_00001_ZJNE_00047_F2M_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/ref_sour_wav/9uOM_00001_ZJNE_00047_F2M_ref_gen.wav"></audio></td>
-            </tr>
-
-        </table>
-        <table align = "center" style="text-align: center;">
-            <tr>
-                <td></td>
-                <td style="text-align: center;">SpeechVC</td>
-                <td style="text-align: center;">Auto-FaceVC</td>
-                <td style="text-align: center;">attentionCVAE</td>
-                <td style="text-align: center;">FVMVC</td>
-            </tr>
-
-            <tr>
-            <td style="text-align: center;">Converted utterance</td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/SpeechVC/9uOM_00001_ZJNE_00047_F2M_gen.wav" type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/Auto-FaceVC/9uOM_00001_ZJNE_00047_F2M_gen.wav"  type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/attentionCVAE/9uOM_00001_ZJNE_00047_F2M_gen.wav" type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/FVMVC/9uOM_00001_ZJNE_00047_F2M_gen.wav"  type="audio/wav"></audio></td>
-            </tr>
-        
-        </table>
-
-        <br>
-
-        <!-- <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-            <p class='h4'>3</p>
-        </div>     -->
-        <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-            <p class='h6'>Sample 3</p>   
-        </div>
-        <table align = "center" style="text-align: center;">
-
-            <tr>
-            <td style="text-align: center;">Source Speaker</td>
-            <td style="text-align: center;">Target Speaker</td>
-            </tr>
-        
-            <tr>
-            <td><img src="resources/image/UAj1_00011.jpg"></td>
-            <td><img src="resources/image/81Ub_00003.jpg"></td>
-            </tr>
-        
-            <tr>
-                <td style="text-align: center;">Source utterance</td>
-                <td style="text-align: center;">Reference utterance</td>
-            </tr>
-
-            <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/ref_sour_wav/81Ub_00003_UAj1_00011_F2M_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/ref_sour_wav/81Ub_00003_UAj1_00011_F2M_ref_gen.wav"></audio></td>
-            </tr>
-
-        </table>
-        <table align = "center" style="text-align: center;">
-            <tr>
-                <td></td>
-                <td style="text-align: center;">SpeechVC</td>
-                <td style="text-align: center;">Auto-FaceVC</td>
-                <td style="text-align: center;">attentionCVAE</td>
-                <td style="text-align: center;">FVMVC</td>
-            </tr>
-            
-            <tr>
-            <td style="text-align: center;">Converted utterance</td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/SpeechVC/81Ub_00003_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/Auto-FaceVC/81Ub_00003_UAj1_00011_F2M_gen.wav"  type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/attentionCVAE/81Ub_00003_UAj1_00011_F2M_gen.wav" type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/FVMVC/81Ub_00003_UAj1_00011_F2M_gen.wav"  type="audio/wav"></audio></td>
-            </tr>
-        
-        </table>
-        <br>
-
-        <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-            <p class='h6'>Sample 4</p>
-        </div>       
-
-        <table align = "center"  style="text-align: center;">
-
-            <tr>
-            <td style="text-align: center;">Source Speaker</td>
-            <td style="text-align: center;">Target Speaker</td>
-            </tr>
-        
-            <tr>
-            <td><img src="resources/image/ZJNE_00047.jpg"></td>
-            <td><img src="resources/image/FFG2_00005.jpg"></td>
-            </tr>
-        
-            <tr>
-                <td style="text-align: center;">Source utterance</td>
-                <td style="text-align: center;">Reference utterance</td>
-            </tr>
-
-            <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/ref_sour_wav/FFG2_00005_ZJNE_00027_F2M_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/ref_sour_wav/FFG2_00005_ZJNE_00027_F2M_ref_gen.wav"></audio></td>
-            </tr>
-
-        </table>
-        <table align = "center" style="text-align: center;">
-            <tr>
-                <td></td>
-                <td style="text-align: center;">SpeechVC</td>
-                <td style="text-align: center;">Auto-FaceVC</td>
-                <td style="text-align: center;">attentionCVAE</td>
-                <td style="text-align: center;">FVMVC</td>
-            </tr>
-
-            <tr>
-            <td style="text-align: center;">Converted utterance</td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/SpeechVC/FFG2_00005_ZJNE_00027_F2M_gen.wav" type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/Auto-FaceVC/FFG2_00005_ZJNE_00027_F2M_gen.wav"  type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/attentionCVAE/FFG2_00005_ZJNE_00027_F2M_gen.wav" type="audio/wav"></audio></td>
-            <td><audio controls="" style='display: inline-block; padding:8px; width: 250px; height: 50px;'><source src="resources/wav/1/FVMVC/FFG2_00005_ZJNE_00027_F2M_gen.wav"  type="audio/wav"></audio></td>
-            </tr>
-        
-        </table>
-
-            <div style='margin-top:40px'>
-                <hr>
-
-
-            
-            <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-                <p class='h5'>2. Converted utterances by the different face images of the same target speaker.</p>
-            </div>  
-
-            <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-                <p class='h6'>Sample 1</p>
-            </div>    
-
-            <table stype='width:80%' style="text-align: center;">
-
                 <tr>
-                <td style="text-align: center;">Source Speaker</td>
-                <td style="text-align: center;">Target Speaker Image1</td>
-                <td style="text-align: center;">Target Speaker Image2</td>
-                <td style="text-align: center;">Target Speaker Image3</td>
-                </tr>
-            
-                <tr>
-                <td><img src="resources/image/mgcj_00002.jpg"></td>
-                <td><img src="resources/image/81Ub_00001.jpg"></td>
-                <td><img src="resources/image/81Ub_00002.jpg"></td>
-                <td><img src="resources/image/81Ub_00003.jpg"></td>
-                </tr>
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00008_M2M_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/81Ub_00001_mgcj_00008_M2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/81Ub_00002_mgcj_00008_M2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/81Ub_00003_mgcj_00008_M2M_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-            
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00015_M2M_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/81Ub_00001_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/81Ub_00002_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/81Ub_00003_mgcj_00015_M2M_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-            
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00002_M2M_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/81Ub_00001_mgcj_00002_M2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/81Ub_00002_mgcj_00002_M2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/81Ub_00003_mgcj_00002_M2M_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-                </table>
-            
-                <br>
-
-
-            <!-- <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-                <p class='h4'>2</p>
-            </div>         -->
-            <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-                <p class='h6'>Sample 2</p>
-            </div>   
-
-            <table stype='width:80%' style="text-align: center;">
-
-                <tr>
-                <td style="text-align: center;">Source Speaker</td>
-                <td style="text-align: center;">Target Speaker Image1</td>
-                <td style="text-align: center;">Target Speaker Image2</td>
-                <td style="text-align: center;">Target Speaker Image3</td>
-                </tr>
-            
-                <tr>
-                <td><img src="resources/image/mgcj_00002.jpg"></td>
-                <td><img src="resources/image/YzGj_00005.jpg"></td>
-                <td><img src="resources/image/YzGj_00006.jpg"></td>
-                <td><img src="resources/image/YzGj_00013.jpg"></td>
-                </tr>
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/ref_sour_wav/YzGj_00005_mgcj_00008_M2F_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/YzGj_00005_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/YzGj_00006_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/YzGj_00013_mgcj_00008_M2F_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-            
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/ref_sour_wav/81Ub_00001_mgcj_00015_M2M_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/YzGj_00005_mgcj_00015_M2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/YzGj_00006_mgcj_00015_M2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/YzGj_00013_mgcj_00015_M2F_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-            
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/ref_sour_wav/YzGj_00005_mgcj_00002_M2F_src_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/YzGj_00005_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/YzGj_00006_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/2/FVMVC/YzGj_00013_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-                </table>
-                <br>
-
-
-                <div style='margin-top:40px'>
-                    <hr>
-                
-                <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-                    <p class='h5'>2. Converted utterances by different target speakers.</p>
-                </div>  
-
-                <table stype='width:80%' style="text-align: center;">
-
-                    <tr>
-                    <td><img src="resources/image/2USt_00004.jpg"></td>
-                    <td><img src="resources/image/7kkR_00003.jpg"></td>
-                    <td><img src="resources/image/8vNI_00011.jpg"></td>
-                    <td><img src="resources/image/BImn_00006.jpg"></td>
-                    </tr>
-                    
-                    <tr>
-                    <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/4/2USt_00004_mgcj_00002_M2M_gen.wav" type="audio/wav"></audio></td>
-                    <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/4/7kkR_00003_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
-                    <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/4/8vNI_00011_mgcj_00002_M2_gen.wav" type="audio/wav"></audio></td>
-                    <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/4/BImn_00006_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
-                    </tr>
-                    
-                    <tr>
-                    <td><img src="resources/image/cmpu_00004.jpg"></td>
-                    <td><img src="resources/image/ddxH_00002.jpg"></td>
-                    <td><img src="resources/image/FmpI_00005.jpg"></td>
-                    <td><img src="resources/image/KuWX_00004.jpg"></td>
-                    </tr>
-                    
-                    <tr>
-                    <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/4/cmpu_00004_mgcj_00002_M2M_gen.wav" type="audio/wav"></audio></td>
-                    <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/4/ddxH_00002_mgcj_00002_M2F_gen.wav" type="audio/wav"></audio></td>
-                    <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/4/FmpI_00005_mgcj_00002_M2M_gen.wav" type="audio/wav"></audio></td>
-                    <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/wav/4/KuWX_00004_mgcj_00002_M2M_gen.wav" type="audio/wav"></audio></td>
-                    </tr>
-
-
-                </table>
-
-
-                <div style='margin-top:40px'>
-                    <hr>
-                    <div class='row text-center'>
-                        <div class='col'>
-                            <p class='h4 font-weight-bold '>Voice interpolation</p>
-                        </div>
-                    </div>
-
-          
-                <table stype='width:80%' style="text-align: center;">
-
-                    <tr>
                     <td></td>
-                    <td style="text-align: center;">Speaker A</td>
-                    <td style="text-align: center;">Speaker B</td>
-                    <td></td>
-                    <td style="text-align: center;">Speaker C</td>
-                    <td style="text-align: center;">Speaker D</td>
-                    <td></td>
-                    <td style="text-align: center;">Speaker E</td>
-                    <td style="text-align: center;">Speaker F</td>
-                    </tr>
-                
-                    <tr>
-                    <td></td>
-                    <td><img src="resources/image/7kkR_00003.jpg"></td>
-                    <td><img src="resources/image/9uOM_00001.jpg"></td>
-                    <td></td>
-                    <td><img src="resources/image/E22i_00006.jpg"></td>
-                    <td><img src="resources/image/81Ub_00001.jpg"></td>
-                    <td></td>
-                    <td><img src="resources/image/hilc_00006.jpg"></td>
-                    <td><img src="resources/image/FFG2_00003.jpg"></td>
-                    </tr>
-                
-                    <tr>
-                    <td>A</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.0_gen.wav" type="audio/wav"></audio></td>
-                    <td>C</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.0_gen.wav" type="audio/wav"></audio></td>
-                    <td>E</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.0_gen.wav" type="audio/wav"></audio></td>
-                    </tr>
-                  
-                
-                
-                    <tr>
-                    <td>0.6A+0.4B</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.3_gen.wav" type="audio/wav"></audio></td>
-                    <td>0.6C+0.4D</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.4_gen.wav"  type="audio/wav"></audio></td>
-                    <td>0.6E+0.4F</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.2_gen.wav" type="audio/wav"></audio></td>
-                    </tr>
-                  
-                
-                
-                    <tr>
-                    <td>0.4A+0.6B</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_0.7_gen.wav" type="audio/wav"></audio></td>
-                    <td>0.4C+0.6D</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/81Ub_E22i/mgcj_00008_0.5_gen.wav"  type="audio/wav"></audio></td>
-                    <td>0.4E+0.6F</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/FFG2_hilc/mgcj_00013_0.7_gen.wav" type="audio/wav"></audio></td>
-                    </tr>
-                
-                
-                
-                    <tr>
-                    <td>B</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/9uOM_7kkR/mgcj_00002_1.0_gen.wav" type="audio/wav"></audio></td>
-                    <td>D</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/81Ub_E22i/mgcj_00008_1.0_gen.wav"  type="audio/wav"></audio></td>
-                    <td>F</td>
-                    <td colspan ="2" ><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/3/FFG2_hilc/mgcj_00013_1.0_gen.wav" type="audio/wav"></audio></td>
-                    </tr>
-                    </table>
-                
-            <hr>
-
-
-            <div style='margin-top:40px'>
-                
-                <div class='row text-center'>
-                    <div class='col'>
-                        <p class='h4 font-weight-bold '>Converted Utterance Examples on other dataset</p>
-                    </div>
+                    <td>VoxEditor</td>
+                    <td>Baseline</td>
+                </tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider1" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(1)">
+                    <span id="sliderValue1">0.7</span>
                 </div>
-                <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
-                    <p class='h5'>Converted utterances by the pre-trained proposed FVMVC of LRS3 dataset on the VGGFace2 and Voxceleb2.</p>
-                </div>  
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider2" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(2)">
+                    <span id="sliderValue2">0.7</span>
+                </div>
+                </td>
+            </tr>
 
-                <table stype='width:80%' style="text-align: center;">
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Magnetic/p226_010_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio1" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio2" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
 
-                <tr>
-                <td style="text-align: center;">Source Speaker</td>
-                <td style="text-align: center;">Target Speaker Image1</td>
-                <td style="text-align: center;">Target Speaker Image2</td>
-                <td style="text-align: center;">Target Speaker Image3</td>
-                </tr>
-            
-                <tr>
-                <td><img src="resources/vgg_demo/ori_image/00169.jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/M_01174(1).jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/M_01174(3).jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/M_01174(5).jpg" width="128" height="128"></td>
-                </tr>
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/source_wav/M_00169(1).wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/01174_1_00169_1_M2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/01174_3_00169_1_M2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/01174_5_00169_1_M2M_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-            
-                </table>
-                
-                <table stype='width:80%' style="text-align: center;">
 
+        <table align="center" style="text-align: center;">
+            <tr>
                 <tr>
-                <td style="text-align: center;">Source Speaker</td>
-                <td style="text-align: center;">Target Speaker Image1</td>
-                <td style="text-align: center;">Target Speaker Image2</td>
-                <td style="text-align: center;">Target Speaker Image3</td>
-                </tr>
-            
-                <tr>
-                <td><img src="resources/vgg_demo/ori_image/00420.jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/F_01395(1).jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/F_01395(2).jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/F_01395(3).jpg" width="128" height="128"></td>
-                </tr>
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/source_wav/F_00420(2).wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/01395_1_00420_2_F2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/01395_2_00420_2_F2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/01395_3_00420_2_F2F_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-                </table>
-                        
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider3" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(3)">
+                    <span id="sliderValue3">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider4" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(4)">
+                    <span id="sliderValue4">0.7</span>
+                </div>
+                </td>
+            </tr>
 
-                </table>
-                <table stype='width:80%' style="text-align: center;">
-                <tr>
-                <td style="text-align: center;">Source Speaker</td>
-                <td style="text-align: center;">Target Speaker Image1</td>
-                <td style="text-align: center;">Target Speaker Image2</td>
-                <td style="text-align: center;">Target Speaker Image3</td>
-                </tr>
-            
-                <tr>
-                <td><img src="resources/vgg_demo/ori_image/00420.jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/M_00164(2).jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/M_00164(3).jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/M_00164(6).jpg" width="128" height="128"></td>
-                </tr>
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/source_wav/F_00420(1).wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/00164_2_00420_1_F2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/00164_3_00420_1_F2M_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/00164_6_00420_1_F2M_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-            
-                </table>
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Magnetic/p246_015_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio3" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio4" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
 
-                </table>
-                <table stype='width:80%' style="text-align: center;">
+
+        <table align="center" style="text-align: center;">
+            <tr>
                 <tr>
-                <td style="text-align: center;">Source Speaker</td>
-                <td style="text-align: center;">Target Speaker Image1</td>
-                <td style="text-align: center;">Target Speaker Image2</td>
-                <td style="text-align: center;">Target Speaker Image3</td>
-                </tr>
-            
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider5" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(5)">
+                    <span id="sliderValue5">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider6" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(6)">
+                    <span id="sliderValue6">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Magnetic/p265_005_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio5" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio6" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+        <table align="center" style="text-align: center;">
+            <tr>
                 <tr>
-                <td><img src="resources/vgg_demo/ori_image/00184.jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/F_01424(1).jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/F_01424(4).jpg" width="128" height="128"></td>
-                <td><img src="resources/vgg_demo/ori_image/F_01424(2).jpg" width="128" height="128"></td>
-                </tr>
-            
-                <tr>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/source_wav/M_00184(2).wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/01424_1_00184_2_M2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/01424_4_00184_2_M2F_gen.wav" type="audio/wav"></audio></td>
-                <td><audio controls="" style='display: inline-block; padding:8px; width: 280px; height: 50px;'><source src="resources/vgg_demo/converted_wav/01424_5_00184_2_M2F_gen.wav" type="audio/wav"></audio></td>
-                </tr>
-            
-                </table>
-            
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider7" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(7)">
+                    <span id="sliderValue7">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider8" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(8)">
+                    <span id="sliderValue8">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Magnetic/p265_015_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio7" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio8" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+        
         <hr>
+        <table  style="text-align: center;">
+
+            <tr>
+                <td>2. I want to make the sound  <strong> brighter </strong>. </td>
+            </tr>
+
+        </table>
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                    <td></td>
+                    <td>VoxEditor</td>
+                    <td>Baseline</td>
+                </tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider9" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(9)">
+                    <span id="sliderValue9">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider10" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(10)">
+                    <span id="sliderValue10">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Bright/p228_005_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio9" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio10" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider11" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(11)">
+                    <span id="sliderValue11">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider12" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(12)">
+                    <span id="sliderValue12">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Bright/p269_010_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio11" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio12" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider13" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(13)">
+                    <span id="sliderValue13">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider14" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(14)">
+                    <span id="sliderValue14">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Bright/p246_005_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio13" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio14" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider15" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(15)">
+                    <span id="sliderValue15">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider16" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(16)">
+                    <span id="sliderValue16">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Bright/p246_015_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio15" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio16" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <hr>
+        <table  style="text-align: center;">
+
+            <tr>
+                <td>3. I want to achieve a <strong> lower-pitch </strong>sound. </td>
+            </tr>
+
+        </table>
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                    <td></td>
+                    <td>VoxEditor</td>
+                    <td>Baseline</td>
+                </tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider17" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(17)">
+                    <span id="sliderValue17">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider18" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(18)">
+                    <span id="sliderValue18">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Low-pitch/p226_005_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio17" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio18" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider19" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(19)">
+                    <span id="sliderValue19">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider20" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(20)">
+                    <span id="sliderValue20">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Low-pitch/p226_015_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio19" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio20" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider21" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(21)">
+                    <span id="sliderValue21">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider22" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(22)">
+                    <span id="sliderValue22">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Low-pitch/p276_010_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio21" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio22" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider23" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(23)">
+                    <span id="sliderValue23">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider24" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(24)">
+                    <span id="sliderValue24">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/1/Low-pitch/p276_015_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio23" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio24" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <div class='row' style='margin-top: 20px; margin-bottom: 0px;'>
+            <p class='h5'>Editing source speech from unseen speakers with varying editing weights</p>
+        </div>  
+   
+        
+        <table  style="text-align: center;">
+
+            <tr>
+                <td>1. I'd like to add a touch of <strong> coarseness </strong> to this voice. </td>
+            </tr>
+
+        </table>
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                    <td></td>
+                    <td>VoxEditor</td>
+                    <td>Baseline</td>
+                </tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider25" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(25)">
+                    <span id="sliderValue25">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider26" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(26)">
+                    <span id="sliderValue26">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Coarser/p236_005_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio25" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio26" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider27" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(27)">
+                    <span id="sliderValue27">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider28" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(28)">
+                    <span id="sliderValue28">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Coarser/p236_010_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio27" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio28" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider29" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(29)">
+                    <span id="sliderValue29">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider30" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(30)">
+                    <span id="sliderValue30">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Coarser/p272_005_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio29" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio30" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider31" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(31)">
+                    <span id="sliderValue31">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider32" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(32)">
+                    <span id="sliderValue32">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Coarser/p272_010_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio31" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio32" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+        
+        <hr>
+        <table  style="text-align: center;">
+
+            <tr>
+                <td>2. I want the sound to be more <strong> delicate </strong>. </td>
+            </tr>
+
+        </table>
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                    <td></td>
+                    <td>VoxEditor</td>
+                    <td>Baseline</td>
+                </tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider33" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(33)">
+                    <span id="sliderValue33">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider34" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(34)">
+                    <span id="sliderValue34">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Fine/p295_010_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio33" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio34" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider35" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(35)">
+                    <span id="sliderValue35">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider36" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(36)">
+                    <span id="sliderValue36">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Fine/p295_015_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio35" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio36" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider37" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(37)">
+                    <span id="sliderValue37">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider38" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(38)">
+                    <span id="sliderValue38">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Fine/p278_005_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio37" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio38" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider39" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(39)">
+                    <span id="sliderValue39">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider40" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(40)">
+                    <span id="sliderValue40">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Fine/p272_005_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio39" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio40" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <hr>
+        <table  style="text-align: center;">
+
+            <tr>
+                <td>3. I want to make this sound more <strong>  magnetic </strong>. </td>
+            </tr>
+
+        </table>
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                    <td></td>
+                    <td>VoxEditor</td>
+                    <td>Baseline</td>
+                </tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider41" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(41)">
+                    <span id="sliderValue41">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider42" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(42)">
+                    <span id="sliderValue42">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Magnetic/p272_005_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio41" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio42" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider43" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(43)">
+                    <span id="sliderValue43">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider44" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(44)">
+                    <span id="sliderValue44">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Magnetic/p272_010_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio43" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio44" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider45" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(45)">
+                    <span id="sliderValue45">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider46" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(46)">
+                    <span id="sliderValue46">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Magnetic/p281_010_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio45" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio46" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
+
+        <table align="center" style="text-align: center;">
+            <tr>
+                <tr>
+                <td>Source Speech</td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider47" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(47)">
+                    <span id="sliderValue47">0.7</span>
+                </div>
+                </td>
+                <td>
+                <div>
+                    <input type="range" id="audioSlider48" min="0" max="1" step="0.1" value="0.7" oninput="updateGeneratedAudio(48)">
+                    <span id="sliderValue48">0.7</span>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><audio controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'><source src="resources/wav/2/Magnetic/p281_015_source.wav" type="audio/wav"></audio></td>
+                        <!-- Your browser does not support the audio element. -->
+                <td>
+                    <audio id="generatedAudio47" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                        <!-- Placeholder for generated audio source -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <!-- Your browser does not support the audio element. -->
+            <td>
+                <audio id="generatedAudio48" controls="" style='display: inline-block; padding:8px; width: 300px; height: 50px;'>
+                    <!-- Placeholder for generated audio source -->
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            </tr>
+        </table>
 
                 <!-- Optional JavaScript -->
                 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -646,6 +1087,810 @@
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
                     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
                     crossorigin="anonymous"></script>
+
+        <script>
+            function updateAudio(playerId, sliderValueId) {
+                var slider = document.getElementById(playerId.replace('audioPlayer', 'slider'));
+                var sliderValue = document.getElementById(sliderValueId);
+                var audioSource = document.getElementById(playerId.replace('audioPlayer', 'audioSource'));
+                var audioPlayer = document.getElementById(playerId);
+    
+                var value = slider.value;
+                sliderValue.textContent = value;
+    
+                // 构建对应的音频文件名，例如 audio/0.0.mp3, audio/0.1.mp3, ...
+                var audioFileName = 'audio/' + value.toFixed(1) + '.mp3';
+    
+                // 更新音频元素的源
+                audioSource.src = audioFileName;
+    
+                // 重新加载音频
+                audioPlayer.load();
+            }
+        </script>
 </body>
 
+<script defer>
+    // Replace "path/to/generated1.wav", "path/to/generated2.wav", etc. with actual paths to generated audio files
+    const generatedAudioPaths = [
+        [
+        "resources/wav/1/Magnetic/p226_010_0.0.wav",
+        "resources/wav/1/Magnetic/p226_010_0.1.wav",
+        "resources/wav/1/Magnetic/p226_010_0.2.wav",
+        "resources/wav/1/Magnetic/p226_010_0.3.wav",
+        "resources/wav/1/Magnetic/p226_010_0.4.wav",
+        "resources/wav/1/Magnetic/p226_010_0.5.wav",
+        "resources/wav/1/Magnetic/p226_010_0.6.wav",
+        "resources/wav/1/Magnetic/p226_010_0.7.wav",
+        "resources/wav/1/Magnetic/p226_010_0.8.wav",
+        "resources/wav/1/Magnetic/p226_010_0.9.wav",
+        "resources/wav/1/Magnetic/p226_010_1.0.wav",
+            // Add more paths for source 1
+        ],
+        [
+        "resources/wav/baseline/1/Magnetic/p226_010_0.0.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_0.1.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_0.2.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_0.3.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_0.4.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_0.5.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_0.6.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_0.7.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_0.8.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_0.9.wav",
+        "resources/wav/baseline/1/Magnetic/p226_010_1.0.wav",
+            // Add more paths for source 1
+        ],
+        [
+        "resources/wav/1/Magnetic/p246_015_0.0.wav",
+        "resources/wav/1/Magnetic/p246_015_0.1.wav",
+        "resources/wav/1/Magnetic/p246_015_0.2.wav",
+        "resources/wav/1/Magnetic/p246_015_0.3.wav",
+        "resources/wav/1/Magnetic/p246_015_0.4.wav",
+        "resources/wav/1/Magnetic/p246_015_0.5.wav",
+        "resources/wav/1/Magnetic/p246_015_0.6.wav",
+        "resources/wav/1/Magnetic/p246_015_0.7.wav",
+        "resources/wav/1/Magnetic/p246_015_0.8.wav",
+        "resources/wav/1/Magnetic/p246_015_0.9.wav",
+        "resources/wav/1/Magnetic/p246_015_1.0.wav",
+            // Add more paths for source 2
+        ],
+        [
+        "resources/wav/baseline/1/Magnetic/p246_015_0.0.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_0.1.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_0.2.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_0.3.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_0.4.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_0.5.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_0.6.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_0.7.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_0.8.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_0.9.wav",
+        "resources/wav/baseline/1/Magnetic/p246_015_1.0.wav",
+            // Add more paths for source 2
+        ],
+        [
+        "resources/wav/1/Magnetic/p265_005_0.0.wav",
+        "resources/wav/1/Magnetic/p265_005_0.1.wav",
+        "resources/wav/1/Magnetic/p265_005_0.2.wav",
+        "resources/wav/1/Magnetic/p265_005_0.3.wav",
+        "resources/wav/1/Magnetic/p265_005_0.4.wav",
+        "resources/wav/1/Magnetic/p265_005_0.5.wav",
+        "resources/wav/1/Magnetic/p265_005_0.6.wav",
+        "resources/wav/1/Magnetic/p265_005_0.7.wav",
+        "resources/wav/1/Magnetic/p265_005_0.8.wav",
+        "resources/wav/1/Magnetic/p265_005_0.9.wav",
+        "resources/wav/1/Magnetic/p265_005_1.0.wav",
+            // Add more paths for source 3
+        ],
+        [
+        "resources/wav/baseline/1/Magnetic/p265_005_0.0.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_0.1.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_0.2.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_0.3.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_0.4.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_0.5.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_0.6.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_0.7.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_0.8.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_0.9.wav",
+        "resources/wav/baseline/1/Magnetic/p265_005_1.0.wav",
+            // Add more paths for source 3
+        ],
+        [
+        "resources/wav/1/Magnetic/p265_015_0.0.wav",
+        "resources/wav/1/Magnetic/p265_015_0.1.wav",
+        "resources/wav/1/Magnetic/p265_015_0.2.wav",
+        "resources/wav/1/Magnetic/p265_015_0.3.wav",
+        "resources/wav/1/Magnetic/p265_015_0.4.wav",
+        "resources/wav/1/Magnetic/p265_015_0.5.wav",
+        "resources/wav/1/Magnetic/p265_015_0.6.wav",
+        "resources/wav/1/Magnetic/p265_015_0.7.wav",
+        "resources/wav/1/Magnetic/p265_015_0.8.wav",
+        "resources/wav/1/Magnetic/p265_015_0.9.wav",
+        "resources/wav/1/Magnetic/p265_015_1.0.wav",
+            // Add more paths for source 4
+        ],
+        [
+        "resources/wav/baseline/1/Magnetic/p265_015_0.0.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_0.1.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_0.2.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_0.3.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_0.4.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_0.5.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_0.6.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_0.7.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_0.8.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_0.9.wav",
+        "resources/wav/baseline/1/Magnetic/p265_015_1.0.wav",
+            // Add more paths for source 4
+        ],
+        [
+        "resources/wav/1/Bright/p228_005_0.0.wav",
+        "resources/wav/1/Bright/p228_005_0.1.wav",
+        "resources/wav/1/Bright/p228_005_0.2.wav",
+        "resources/wav/1/Bright/p228_005_0.3.wav",
+        "resources/wav/1/Bright/p228_005_0.4.wav",
+        "resources/wav/1/Bright/p228_005_0.5.wav",
+        "resources/wav/1/Bright/p228_005_0.6.wav",
+        "resources/wav/1/Bright/p228_005_0.7.wav",
+        "resources/wav/1/Bright/p228_005_0.8.wav",
+        "resources/wav/1/Bright/p228_005_0.9.wav",
+        "resources/wav/1/Bright/p228_005_1.0.wav",
+            // Add more paths for source 5
+        ],
+        [
+        "resources/wav/baseline/1/Bright/p228_005_0.0.wav",
+        "resources/wav/baseline/1/Bright/p228_005_0.1.wav",
+        "resources/wav/baseline/1/Bright/p228_005_0.2.wav",
+        "resources/wav/baseline/1/Bright/p228_005_0.3.wav",
+        "resources/wav/baseline/1/Bright/p228_005_0.4.wav",
+        "resources/wav/baseline/1/Bright/p228_005_0.5.wav",
+        "resources/wav/baseline/1/Bright/p228_005_0.6.wav",
+        "resources/wav/baseline/1/Bright/p228_005_0.7.wav",
+        "resources/wav/baseline/1/Bright/p228_005_0.8.wav",
+        "resources/wav/baseline/1/Bright/p228_005_0.9.wav",
+        "resources/wav/baseline/1/Bright/p228_005_1.0.wav",
+            // Add more paths for source 5
+        ],
+        [
+        "resources/wav/1/Bright/p269_010_0.0.wav",
+        "resources/wav/1/Bright/p269_010_0.1.wav",
+        "resources/wav/1/Bright/p269_010_0.2.wav",
+        "resources/wav/1/Bright/p269_010_0.3.wav",
+        "resources/wav/1/Bright/p269_010_0.4.wav",
+        "resources/wav/1/Bright/p269_010_0.5.wav",
+        "resources/wav/1/Bright/p269_010_0.6.wav",
+        "resources/wav/1/Bright/p269_010_0.7.wav",
+        "resources/wav/1/Bright/p269_010_0.8.wav",
+        "resources/wav/1/Bright/p269_010_0.9.wav",
+        "resources/wav/1/Bright/p269_010_1.0.wav",
+            // Add more paths for source 6
+        ],
+        [
+        "resources/wav/baseline/1/Bright/p269_010_0.0.wav",
+        "resources/wav/baseline/1/Bright/p269_010_0.1.wav",
+        "resources/wav/baseline/1/Bright/p269_010_0.2.wav",
+        "resources/wav/baseline/1/Bright/p269_010_0.3.wav",
+        "resources/wav/baseline/1/Bright/p269_010_0.4.wav",
+        "resources/wav/baseline/1/Bright/p269_010_0.5.wav",
+        "resources/wav/baseline/1/Bright/p269_010_0.6.wav",
+        "resources/wav/baseline/1/Bright/p269_010_0.7.wav",
+        "resources/wav/baseline/1/Bright/p269_010_0.8.wav",
+        "resources/wav/baseline/1/Bright/p269_010_0.9.wav",
+        "resources/wav/baseline/1/Bright/p269_010_1.0.wav",
+            // Add more paths for source 6
+        ],
+        [
+        "resources/wav/1/Bright/p246_005_0.0.wav",
+        "resources/wav/1/Bright/p246_005_0.1.wav",
+        "resources/wav/1/Bright/p246_005_0.2.wav",
+        "resources/wav/1/Bright/p246_005_0.3.wav",
+        "resources/wav/1/Bright/p246_005_0.4.wav",
+        "resources/wav/1/Bright/p246_005_0.5.wav",
+        "resources/wav/1/Bright/p246_005_0.6.wav",
+        "resources/wav/1/Bright/p246_005_0.7.wav",
+        "resources/wav/1/Bright/p246_005_0.8.wav",
+        "resources/wav/1/Bright/p246_005_0.9.wav",
+        "resources/wav/1/Bright/p246_005_1.0.wav",
+            // Add more paths for source 7
+        ],
+        [
+        "resources/wav/baseline/1/Bright/p246_005_0.0.wav",
+        "resources/wav/baseline/1/Bright/p246_005_0.1.wav",
+        "resources/wav/baseline/1/Bright/p246_005_0.2.wav",
+        "resources/wav/baseline/1/Bright/p246_005_0.3.wav",
+        "resources/wav/baseline/1/Bright/p246_005_0.4.wav",
+        "resources/wav/baseline/1/Bright/p246_005_0.5.wav",
+        "resources/wav/baseline/1/Bright/p246_005_0.6.wav",
+        "resources/wav/baseline/1/Bright/p246_005_0.7.wav",
+        "resources/wav/baseline/1/Bright/p246_005_0.8.wav",
+        "resources/wav/baseline/1/Bright/p246_005_0.9.wav",
+        "resources/wav/baseline/1/Bright/p246_005_1.0.wav",
+            // Add more paths for source 7
+        ],
+        [
+        "resources/wav/1/Bright/p246_015_0.0.wav",
+        "resources/wav/1/Bright/p246_015_0.1.wav",
+        "resources/wav/1/Bright/p246_015_0.2.wav",
+        "resources/wav/1/Bright/p246_015_0.3.wav",
+        "resources/wav/1/Bright/p246_015_0.4.wav",
+        "resources/wav/1/Bright/p246_015_0.5.wav",
+        "resources/wav/1/Bright/p246_015_0.6.wav",
+        "resources/wav/1/Bright/p246_015_0.7.wav",
+        "resources/wav/1/Bright/p246_015_0.8.wav",
+        "resources/wav/1/Bright/p246_015_0.9.wav",
+        "resources/wav/1/Bright/p246_015_1.0.wav",
+            // Add more paths for source 8
+        ],
+        [
+        "resources/wav/baseline/1/Bright/p246_015_0.0.wav",
+        "resources/wav/baseline/1/Bright/p246_015_0.1.wav",
+        "resources/wav/baseline/1/Bright/p246_015_0.2.wav",
+        "resources/wav/baseline/1/Bright/p246_015_0.3.wav",
+        "resources/wav/baseline/1/Bright/p246_015_0.4.wav",
+        "resources/wav/baseline/1/Bright/p246_015_0.5.wav",
+        "resources/wav/baseline/1/Bright/p246_015_0.6.wav",
+        "resources/wav/baseline/1/Bright/p246_015_0.7.wav",
+        "resources/wav/baseline/1/Bright/p246_015_0.8.wav",
+        "resources/wav/baseline/1/Bright/p246_015_0.9.wav",
+        "resources/wav/baseline/1/Bright/p246_015_1.0.wav",
+            // Add more paths for source 8
+        ],
+        [
+        "resources/wav/1/Low-pitch/p226_005_0.0.wav",
+        "resources/wav/1/Low-pitch/p226_005_0.1.wav",
+        "resources/wav/1/Low-pitch/p226_005_0.2.wav",
+        "resources/wav/1/Low-pitch/p226_005_0.3.wav",
+        "resources/wav/1/Low-pitch/p226_005_0.4.wav",
+        "resources/wav/1/Low-pitch/p226_005_0.5.wav",
+        "resources/wav/1/Low-pitch/p226_005_0.6.wav",
+        "resources/wav/1/Low-pitch/p226_005_0.7.wav",
+        "resources/wav/1/Low-pitch/p226_005_0.8.wav",
+        "resources/wav/1/Low-pitch/p226_005_0.9.wav",
+        "resources/wav/1/Low-pitch/p226_005_1.0.wav",
+            // Add more paths for source 9
+        ],
+        [
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.0.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.1.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.2.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.3.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.4.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.5.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.6.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.7.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.8.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_0.9.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_005_1.0.wav",
+            // Add more paths for source 9
+        ],
+        [
+        "resources/wav/1/Low-pitch/p226_015_0.0.wav",
+        "resources/wav/1/Low-pitch/p226_015_0.1.wav",
+        "resources/wav/1/Low-pitch/p226_015_0.2.wav",
+        "resources/wav/1/Low-pitch/p226_015_0.3.wav",
+        "resources/wav/1/Low-pitch/p226_015_0.4.wav",
+        "resources/wav/1/Low-pitch/p226_015_0.5.wav",
+        "resources/wav/1/Low-pitch/p226_015_0.6.wav",
+        "resources/wav/1/Low-pitch/p226_015_0.7.wav",
+        "resources/wav/1/Low-pitch/p226_015_0.8.wav",
+        "resources/wav/1/Low-pitch/p226_015_0.9.wav",
+        "resources/wav/1/Low-pitch/p226_015_1.0.wav",
+            // Add more paths for source 10
+        ],
+        [
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.0.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.1.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.2.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.3.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.4.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.5.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.6.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.7.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.8.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_0.9.wav",
+        "resources/wav/baseline/1/Low-pitch/p226_015_1.0.wav",
+            // Add more paths for source 10
+        ],
+        [
+        "resources/wav/1/Low-pitch/p276_010_0.0.wav",
+        "resources/wav/1/Low-pitch/p276_010_0.1.wav",
+        "resources/wav/1/Low-pitch/p276_010_0.2.wav",
+        "resources/wav/1/Low-pitch/p276_010_0.3.wav",
+        "resources/wav/1/Low-pitch/p276_010_0.4.wav",
+        "resources/wav/1/Low-pitch/p276_010_0.5.wav",
+        "resources/wav/1/Low-pitch/p276_010_0.6.wav",
+        "resources/wav/1/Low-pitch/p276_010_0.7.wav",
+        "resources/wav/1/Low-pitch/p276_010_0.8.wav",
+        "resources/wav/1/Low-pitch/p276_010_0.9.wav",
+        "resources/wav/1/Low-pitch/p276_010_1.0.wav",
+            // Add more paths for source 11
+        ],
+        [
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.0.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.1.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.2.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.3.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.4.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.5.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.6.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.7.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.8.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_0.9.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_010_1.0.wav",
+            // Add more paths for source 11
+        ],
+        [
+        "resources/wav/1/Low-pitch/p276_015_0.0.wav",
+        "resources/wav/1/Low-pitch/p276_015_0.1.wav",
+        "resources/wav/1/Low-pitch/p276_015_0.2.wav",
+        "resources/wav/1/Low-pitch/p276_015_0.3.wav",
+        "resources/wav/1/Low-pitch/p276_015_0.4.wav",
+        "resources/wav/1/Low-pitch/p276_015_0.5.wav",
+        "resources/wav/1/Low-pitch/p276_015_0.6.wav",
+        "resources/wav/1/Low-pitch/p276_015_0.7.wav",
+        "resources/wav/1/Low-pitch/p276_015_0.8.wav",
+        "resources/wav/1/Low-pitch/p276_015_0.9.wav",
+        "resources/wav/1/Low-pitch/p276_015_1.0.wav",
+            // Add more paths for source 12
+        ],
+        [
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.0.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.1.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.2.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.3.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.4.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.5.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.6.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.7.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.8.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_0.9.wav",
+        "resources/wav/baseline/1/Low-pitch/p276_015_1.0.wav",
+            // Add more paths for source 12
+        ],
+
+        [
+        "resources/wav/2/Coarser/p236_005_0.0.wav",
+        "resources/wav/2/Coarser/p236_005_0.1.wav",
+        "resources/wav/2/Coarser/p236_005_0.2.wav",
+        "resources/wav/2/Coarser/p236_005_0.3.wav",
+        "resources/wav/2/Coarser/p236_005_0.4.wav",
+        "resources/wav/2/Coarser/p236_005_0.5.wav",
+        "resources/wav/2/Coarser/p236_005_0.6.wav",
+        "resources/wav/2/Coarser/p236_005_0.7.wav",
+        "resources/wav/2/Coarser/p236_005_0.8.wav",
+        "resources/wav/2/Coarser/p236_005_0.9.wav",
+        "resources/wav/2/Coarser/p236_005_1.0.wav",
+            // Add more paths for source 13
+        ],
+        [
+        "resources/wav/baseline/2/Coarser/p236_005_0.0.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_0.1.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_0.2.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_0.3.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_0.4.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_0.5.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_0.6.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_0.7.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_0.8.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_0.9.wav",
+        "resources/wav/baseline/2/Coarser/p236_005_1.0.wav",
+            // Add more paths for source 13
+        ],
+        [
+        "resources/wav/2/Coarser/p236_010_0.0.wav",
+        "resources/wav/2/Coarser/p236_010_0.1.wav",
+        "resources/wav/2/Coarser/p236_010_0.2.wav",
+        "resources/wav/2/Coarser/p236_010_0.3.wav",
+        "resources/wav/2/Coarser/p236_010_0.4.wav",
+        "resources/wav/2/Coarser/p236_010_0.5.wav",
+        "resources/wav/2/Coarser/p236_010_0.6.wav",
+        "resources/wav/2/Coarser/p236_010_0.7.wav",
+        "resources/wav/2/Coarser/p236_010_0.8.wav",
+        "resources/wav/2/Coarser/p236_010_0.9.wav",
+        "resources/wav/2/Coarser/p236_010_1.0.wav",
+            // Add more paths for source 14
+        ],
+        [
+        "resources/wav/baseline/2/Coarser/p236_010_0.0.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_0.1.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_0.2.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_0.3.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_0.4.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_0.5.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_0.6.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_0.7.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_0.8.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_0.9.wav",
+        "resources/wav/baseline/2/Coarser/p236_010_1.0.wav",
+            // Add more paths for source 14
+        ],
+        [
+        "resources/wav/2/Coarser/p272_005_0.0.wav",
+        "resources/wav/2/Coarser/p272_005_0.1.wav",
+        "resources/wav/2/Coarser/p272_005_0.2.wav",
+        "resources/wav/2/Coarser/p272_005_0.3.wav",
+        "resources/wav/2/Coarser/p272_005_0.4.wav",
+        "resources/wav/2/Coarser/p272_005_0.5.wav",
+        "resources/wav/2/Coarser/p272_005_0.6.wav",
+        "resources/wav/2/Coarser/p272_005_0.7.wav",
+        "resources/wav/2/Coarser/p272_005_0.8.wav",
+        "resources/wav/2/Coarser/p272_005_0.9.wav",
+        "resources/wav/2/Coarser/p272_005_1.0.wav",
+            // Add more paths for source 15
+        ],
+        [
+        "resources/wav/baseline/2/Coarser/p272_005_0.0.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_0.1.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_0.2.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_0.3.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_0.4.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_0.5.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_0.6.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_0.7.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_0.8.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_0.9.wav",
+        "resources/wav/baseline/2/Coarser/p272_005_1.0.wav",
+            // Add more paths for source 15
+        ],
+        [
+        "resources/wav/2/Coarser/p272_010_0.0.wav",
+        "resources/wav/2/Coarser/p272_010_0.1.wav",
+        "resources/wav/2/Coarser/p272_010_0.2.wav",
+        "resources/wav/2/Coarser/p272_010_0.3.wav",
+        "resources/wav/2/Coarser/p272_010_0.4.wav",
+        "resources/wav/2/Coarser/p272_010_0.5.wav",
+        "resources/wav/2/Coarser/p272_010_0.6.wav",
+        "resources/wav/2/Coarser/p272_010_0.7.wav",
+        "resources/wav/2/Coarser/p272_010_0.8.wav",
+        "resources/wav/2/Coarser/p272_010_0.9.wav",
+        "resources/wav/2/Coarser/p272_010_1.0.wav",
+            // Add more paths for source 16
+        ],
+        [
+        "resources/wav/baseline/2/Coarser/p272_010_0.0.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_0.1.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_0.2.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_0.3.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_0.4.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_0.5.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_0.6.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_0.7.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_0.8.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_0.9.wav",
+        "resources/wav/baseline/2/Coarser/p272_010_1.0.wav",
+            // Add more paths for source 16
+        ],
+        [
+        "resources/wav/2/Fine/p295_010_0.0.wav",
+        "resources/wav/2/Fine/p295_010_0.1.wav",
+        "resources/wav/2/Fine/p295_010_0.2.wav",
+        "resources/wav/2/Fine/p295_010_0.3.wav",
+        "resources/wav/2/Fine/p295_010_0.4.wav",
+        "resources/wav/2/Fine/p295_010_0.5.wav",
+        "resources/wav/2/Fine/p295_010_0.6.wav",
+        "resources/wav/2/Fine/p295_010_0.7.wav",
+        "resources/wav/2/Fine/p295_010_0.8.wav",
+        "resources/wav/2/Fine/p295_010_0.9.wav",
+        "resources/wav/2/Fine/p295_010_1.0.wav",
+            // Add more paths for source 17
+        ],
+        [
+        "resources/wav/baseline/2/Fine/p295_010_0.0.wav",
+        "resources/wav/baseline/2/Fine/p295_010_0.1.wav",
+        "resources/wav/baseline/2/Fine/p295_010_0.2.wav",
+        "resources/wav/baseline/2/Fine/p295_010_0.3.wav",
+        "resources/wav/baseline/2/Fine/p295_010_0.4.wav",
+        "resources/wav/baseline/2/Fine/p295_010_0.5.wav",
+        "resources/wav/baseline/2/Fine/p295_010_0.6.wav",
+        "resources/wav/baseline/2/Fine/p295_010_0.7.wav",
+        "resources/wav/baseline/2/Fine/p295_010_0.8.wav",
+        "resources/wav/baseline/2/Fine/p295_010_0.9.wav",
+        "resources/wav/baseline/2/Fine/p295_010_1.0.wav",
+            // Add more paths for source 17
+        ],
+        [
+        "resources/wav/2/Fine/p295_015_0.0.wav",
+        "resources/wav/2/Fine/p295_015_0.1.wav",
+        "resources/wav/2/Fine/p295_015_0.2.wav",
+        "resources/wav/2/Fine/p295_015_0.3.wav",
+        "resources/wav/2/Fine/p295_015_0.4.wav",
+        "resources/wav/2/Fine/p295_015_0.5.wav",
+        "resources/wav/2/Fine/p295_015_0.6.wav",
+        "resources/wav/2/Fine/p295_015_0.7.wav",
+        "resources/wav/2/Fine/p295_015_0.8.wav",
+        "resources/wav/2/Fine/p295_015_0.9.wav",
+        "resources/wav/2/Fine/p295_015_1.0.wav",
+            // Add more paths for source 18
+        ],
+        [
+        "resources/wav/baseline/2/Fine/p295_015_0.0.wav",
+        "resources/wav/baseline/2/Fine/p295_015_0.1.wav",
+        "resources/wav/baseline/2/Fine/p295_015_0.2.wav",
+        "resources/wav/baseline/2/Fine/p295_015_0.3.wav",
+        "resources/wav/baseline/2/Fine/p295_015_0.4.wav",
+        "resources/wav/baseline/2/Fine/p295_015_0.5.wav",
+        "resources/wav/baseline/2/Fine/p295_015_0.6.wav",
+        "resources/wav/baseline/2/Fine/p295_015_0.7.wav",
+        "resources/wav/baseline/2/Fine/p295_015_0.8.wav",
+        "resources/wav/baseline/2/Fine/p295_015_0.9.wav",
+        "resources/wav/baseline/2/Fine/p295_015_1.0.wav",
+            // Add more paths for source 18
+        ],
+        [
+        "resources/wav/2/Fine/p278_005_0.0.wav",
+        "resources/wav/2/Fine/p278_005_0.1.wav",
+        "resources/wav/2/Fine/p278_005_0.2.wav",
+        "resources/wav/2/Fine/p278_005_0.3.wav",
+        "resources/wav/2/Fine/p278_005_0.4.wav",
+        "resources/wav/2/Fine/p278_005_0.5.wav",
+        "resources/wav/2/Fine/p278_005_0.6.wav",
+        "resources/wav/2/Fine/p278_005_0.7.wav",
+        "resources/wav/2/Fine/p278_005_0.8.wav",
+        "resources/wav/2/Fine/p278_005_0.9.wav",
+        "resources/wav/2/Fine/p278_005_1.0.wav",
+            // Add more paths for source 19
+        ],
+        [
+        "resources/wav/baseline/2/Fine/p278_005_0.0.wav",
+        "resources/wav/baseline/2/Fine/p278_005_0.1.wav",
+        "resources/wav/baseline/2/Fine/p278_005_0.2.wav",
+        "resources/wav/baseline/2/Fine/p278_005_0.3.wav",
+        "resources/wav/baseline/2/Fine/p278_005_0.4.wav",
+        "resources/wav/baseline/2/Fine/p278_005_0.5.wav",
+        "resources/wav/baseline/2/Fine/p278_005_0.6.wav",
+        "resources/wav/baseline/2/Fine/p278_005_0.7.wav",
+        "resources/wav/baseline/2/Fine/p278_005_0.8.wav",
+        "resources/wav/baseline/2/Fine/p278_005_0.9.wav",
+        "resources/wav/baseline/2/Fine/p278_005_1.0.wav",
+            // Add more paths for source 19
+        ],
+        [
+        "resources/wav/2/Fine/p272_005_0.0.wav",
+        "resources/wav/2/Fine/p272_005_0.1.wav",
+        "resources/wav/2/Fine/p272_005_0.2.wav",
+        "resources/wav/2/Fine/p272_005_0.3.wav",
+        "resources/wav/2/Fine/p272_005_0.4.wav",
+        "resources/wav/2/Fine/p272_005_0.5.wav",
+        "resources/wav/2/Fine/p272_005_0.6.wav",
+        "resources/wav/2/Fine/p272_005_0.7.wav",
+        "resources/wav/2/Fine/p272_005_0.8.wav",
+        "resources/wav/2/Fine/p272_005_0.9.wav",
+        "resources/wav/2/Fine/p272_005_1.0.wav",
+            // Add more paths for source 20
+        ],
+        [
+        "resources/wav/baseline/2/Fine/p272_005_0.0.wav",
+        "resources/wav/baseline/2/Fine/p272_005_0.1.wav",
+        "resources/wav/baseline/2/Fine/p272_005_0.2.wav",
+        "resources/wav/baseline/2/Fine/p272_005_0.3.wav",
+        "resources/wav/baseline/2/Fine/p272_005_0.4.wav",
+        "resources/wav/baseline/2/Fine/p272_005_0.5.wav",
+        "resources/wav/baseline/2/Fine/p272_005_0.6.wav",
+        "resources/wav/baseline/2/Fine/p272_005_0.7.wav",
+        "resources/wav/baseline/2/Fine/p272_005_0.8.wav",
+        "resources/wav/baseline/2/Fine/p272_005_0.9.wav",
+        "resources/wav/baseline/2/Fine/p272_005_1.0.wav",
+            // Add more paths for source 20
+        ],
+        [
+        "resources/wav/2/Magnetic/p272_005_0.0.wav",
+        "resources/wav/2/Magnetic/p272_005_0.1.wav",
+        "resources/wav/2/Magnetic/p272_005_0.2.wav",
+        "resources/wav/2/Magnetic/p272_005_0.3.wav",
+        "resources/wav/2/Magnetic/p272_005_0.4.wav",
+        "resources/wav/2/Magnetic/p272_005_0.5.wav",
+        "resources/wav/2/Magnetic/p272_005_0.6.wav",
+        "resources/wav/2/Magnetic/p272_005_0.7.wav",
+        "resources/wav/2/Magnetic/p272_005_0.8.wav",
+        "resources/wav/2/Magnetic/p272_005_0.9.wav",
+        "resources/wav/2/Magnetic/p272_005_1.0.wav",
+            // Add more paths for source 21
+        ],
+        [
+        "resources/wav/baseline/2/Magnetic/p272_005_0.0.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_0.1.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_0.2.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_0.3.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_0.4.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_0.5.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_0.6.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_0.7.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_0.8.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_0.9.wav",
+        "resources/wav/baseline/2/Magnetic/p272_005_1.0.wav",
+            // Add more paths for source 21
+        ],
+        [
+        "resources/wav/2/Magnetic/p272_010_0.0.wav",
+        "resources/wav/2/Magnetic/p272_010_0.1.wav",
+        "resources/wav/2/Magnetic/p272_010_0.2.wav",
+        "resources/wav/2/Magnetic/p272_010_0.3.wav",
+        "resources/wav/2/Magnetic/p272_010_0.4.wav",
+        "resources/wav/2/Magnetic/p272_010_0.5.wav",
+        "resources/wav/2/Magnetic/p272_010_0.6.wav",
+        "resources/wav/2/Magnetic/p272_010_0.7.wav",
+        "resources/wav/2/Magnetic/p272_010_0.8.wav",
+        "resources/wav/2/Magnetic/p272_010_0.9.wav",
+        "resources/wav/2/Magnetic/p272_010_1.0.wav",
+            // Add more paths for source 22
+        ],
+        [
+        "resources/wav/baseline/2/Magnetic/p272_010_0.0.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.1.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.2.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.3.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.4.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.5.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.6.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.7.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.8.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.9.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_1.0.wav",
+            // Add more paths for source 22
+        ],
+        [
+        "resources/wav/2/Magnetic/p272_010_0.0.wav",
+        "resources/wav/2/Magnetic/p272_010_0.1.wav",
+        "resources/wav/2/Magnetic/p272_010_0.2.wav",
+        "resources/wav/2/Magnetic/p272_010_0.3.wav",
+        "resources/wav/2/Magnetic/p272_010_0.4.wav",
+        "resources/wav/2/Magnetic/p272_010_0.5.wav",
+        "resources/wav/2/Magnetic/p272_010_0.6.wav",
+        "resources/wav/2/Magnetic/p272_010_0.7.wav",
+        "resources/wav/2/Magnetic/p272_010_0.8.wav",
+        "resources/wav/2/Magnetic/p272_010_0.9.wav",
+        "resources/wav/2/Magnetic/p272_010_1.0.wav",
+            // Add more paths for source 22
+        ],
+        [
+        "resources/wav/baseline/2/Magnetic/p272_010_0.0.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.1.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.2.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.3.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.4.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.5.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.6.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.7.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.8.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_0.9.wav",
+        "resources/wav/baseline/2/Magnetic/p272_010_1.0.wav",
+            // Add more paths for source 22
+        ],
+        [
+        "resources/wav/2/Magnetic/p281_010_0.0.wav",
+        "resources/wav/2/Magnetic/p281_010_0.1.wav",
+        "resources/wav/2/Magnetic/p281_010_0.2.wav",
+        "resources/wav/2/Magnetic/p281_010_0.3.wav",
+        "resources/wav/2/Magnetic/p281_010_0.4.wav",
+        "resources/wav/2/Magnetic/p281_010_0.5.wav",
+        "resources/wav/2/Magnetic/p281_010_0.6.wav",
+        "resources/wav/2/Magnetic/p281_010_0.7.wav",
+        "resources/wav/2/Magnetic/p281_010_0.8.wav",
+        "resources/wav/2/Magnetic/p281_010_0.9.wav",
+        "resources/wav/2/Magnetic/p281_010_1.0.wav",
+            // Add more paths for source 23
+        ],
+        [
+        "resources/wav/baseline/2/Magnetic/p281_010_0.0.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_0.1.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_0.2.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_0.3.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_0.4.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_0.5.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_0.6.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_0.7.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_0.8.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_0.9.wav",
+        "resources/wav/baseline/2/Magnetic/p281_010_1.0.wav",
+            // Add more paths for source 23
+        ],
+        [
+        "resources/wav/2/Magnetic/p281_015_0.0.wav",
+        "resources/wav/2/Magnetic/p281_015_0.1.wav",
+        "resources/wav/2/Magnetic/p281_015_0.2.wav",
+        "resources/wav/2/Magnetic/p281_015_0.3.wav",
+        "resources/wav/2/Magnetic/p281_015_0.4.wav",
+        "resources/wav/2/Magnetic/p281_015_0.5.wav",
+        "resources/wav/2/Magnetic/p281_015_0.6.wav",
+        "resources/wav/2/Magnetic/p281_015_0.7.wav",
+        "resources/wav/2/Magnetic/p281_015_0.8.wav",
+        "resources/wav/2/Magnetic/p281_015_0.9.wav",
+        "resources/wav/2/Magnetic/p281_015_1.0.wav",
+            // Add more paths for source 24
+        ],
+        [
+        "resources/wav/baseline/2/Magnetic/p281_015_0.0.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_0.1.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_0.2.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_0.3.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_0.4.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_0.5.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_0.6.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_0.7.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_0.8.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_0.9.wav",
+        "resources/wav/baseline/2/Magnetic/p281_015_1.0.wav",
+            // Add more paths for source 24
+        ],
+    ];
+
+    // Define source mappings to corresponding generated audio group index
+    // const sourceMappings = {
+    //     "resources/wav/1/SpeechVC/7kkR_00003_mgcj_00008_M2F_gen.wav": 0,
+    //     "resources/wav/1/SpeechVC/81Ub_00003_UAj1_00011_F2M_gen.wav": 1,
+    //     // Add more mappings as needed
+    // };
+    // console.log(sourceMappings)
+
+    // Trigger initial update on page load
+    updateGeneratedAudio(1);
+    updateGeneratedAudio(2);
+    updateGeneratedAudio(3);
+    updateGeneratedAudio(4);
+    updateGeneratedAudio(5);
+    updateGeneratedAudio(6);
+    updateGeneratedAudio(7);
+    updateGeneratedAudio(8);
+    updateGeneratedAudio(9);
+    updateGeneratedAudio(10);
+    updateGeneratedAudio(11);
+    updateGeneratedAudio(12);
+    updateGeneratedAudio(13);
+    updateGeneratedAudio(14);
+    updateGeneratedAudio(15);
+    updateGeneratedAudio(16);
+    updateGeneratedAudio(17);
+    updateGeneratedAudio(18);
+    updateGeneratedAudio(19);
+    updateGeneratedAudio(20);
+    updateGeneratedAudio(21);
+    updateGeneratedAudio(22);
+    updateGeneratedAudio(23);
+    updateGeneratedAudio(24);
+    updateGeneratedAudio(25);
+    updateGeneratedAudio(26);
+    updateGeneratedAudio(27);
+    updateGeneratedAudio(28);
+    updateGeneratedAudio(29);
+    updateGeneratedAudio(30);
+    updateGeneratedAudio(31);
+    updateGeneratedAudio(32);
+    updateGeneratedAudio(33);
+    updateGeneratedAudio(34);
+    updateGeneratedAudio(35);
+    updateGeneratedAudio(36);
+    updateGeneratedAudio(37);
+    updateGeneratedAudio(38);
+    updateGeneratedAudio(39);
+    updateGeneratedAudio(40);
+    updateGeneratedAudio(41);
+    updateGeneratedAudio(42);
+    updateGeneratedAudio(43);
+    updateGeneratedAudio(44);
+    updateGeneratedAudio(45);
+    updateGeneratedAudio(46);
+    updateGeneratedAudio(47);
+    updateGeneratedAudio(48);
+
+    // Function to update generated audio source and slider value
+    function updateGeneratedAudio(groupIndex) {
+        const audioSlider = document.getElementById(`audioSlider${groupIndex}`);
+        const sliderValueSpan = document.getElementById(`sliderValue${groupIndex}`);
+        const generatedAudio = document.getElementById(`generatedAudio${groupIndex}`);
+        
+        const currentGroupPaths = generatedAudioPaths[groupIndex-1];
+        // 使用组索引获取生成音频路径
+        const sliderValue = parseFloat(audioSlider.value);
+        const selectedIndex = Math.floor(sliderValue * (currentGroupPaths.length-1));
+        console.log(sliderValue * currentGroupPaths.length)
+        console.log(selectedIndex)
+        const selectedPath = currentGroupPaths[selectedIndex];
+        
+        generatedAudio.src = selectedPath;
+        sliderValueSpan.textContent = `\u03B1=${sliderValue.toFixed(1)}`;
+        generatedAudio.load(); 
+    }
+</script>
 </html>
